@@ -10,15 +10,14 @@
     --blue: #003DA5;
     --blue-dark: #00278a;
     --blue-mid: #1a56c4;
-    --blue-light: #e8f0fb;
     --red: #BF0A30;
-    --red-light: #fdf0f3;
-    --cream: #f8f6f1;
+    --red-light: #e8f0fb;
+    --cream: #f9f7f2;
     --text: #1a1a2e;
     --muted: #5a6270;
-    --border: #dde3ef;
+    --border: #d0d8e8;
     --white: #ffffff;
-    --sidebar-w: 280px;
+    --section-gap: 2rem;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,283 +30,228 @@
     line-height: 1.7;
   }
 
-  /* ══════════════════════════════════════
-     DESKTOP LAYOUT
-  ══════════════════════════════════════ */
-
-  .layout {
-    display: flex;
-    min-height: 100vh;
-  }
-
-  /* ── Sidebar ── */
-  .sidebar {
-    width: var(--sidebar-w);
-    background: var(--blue-dark);
-    position: fixed;
-    top: 0; left: 0; bottom: 0;
-    overflow-y: auto;
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sidebar-brand {
-    padding: 1.75rem 1.5rem 1.25rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .sidebar-brand-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 900;
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, var(--blue-mid) 100%);
     color: white;
-    line-height: 1.25;
+    padding: 2rem 1.25rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,61,165,0.35);
   }
-  .sidebar-brand-sub {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.5);
-    margin-top: 0.3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 300;
-  }
-  .sidebar-flag {
-    display: flex;
-    gap: 3px;
-    margin-top: 0.75rem;
-  }
-  .sidebar-flag span {
-    height: 4px;
-    border-radius: 2px;
-    flex: 1;
-  }
-  .sidebar-flag .f-blue { background: var(--blue-mid); }
-  .sidebar-flag .f-red  { background: var(--red); }
-  .sidebar-flag .f-white { background: rgba(255,255,255,0.4); }
-
-  .sidebar-nav {
-    flex: 1;
-    padding: 1rem 0;
-  }
-  .nav-group-label {
-    font-size: 0.64rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    padding: 1rem 1.5rem 0.35rem;
-  }
-  .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.55rem 1.5rem;
-    color: rgba(255,255,255,0.65);
-    text-decoration: none;
-    font-size: 0.88rem;
-    transition: all 0.15s;
-    border-left: 3px solid transparent;
-  }
-  .nav-link:hover, .nav-link.active {
-    color: white;
-    background: rgba(255,255,255,0.08);
-    border-left-color: var(--red);
-  }
-  .nav-link .nav-icon {
-    font-size: 0.85rem;
-    opacity: 0.7;
-    width: 16px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-  .nav-link.sub {
-    padding-left: 2.9rem;
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.45);
-  }
-  .nav-link.sub:hover { color: rgba(255,255,255,0.8); }
-
-  .sidebar-footer {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.3);
-    line-height: 1.5;
-  }
-  .sidebar-footer a { color: rgba(255,255,255,0.5); }
-
-  /* ── Main content area ── */
-  .main {
-    margin-left: var(--sidebar-w);
-    flex: 1;
-    min-width: 0;
-  }
-
-  /* ── Top bar (desktop) ── */
-  .topbar {
-    background: white;
-    border-bottom: 1px solid var(--border);
-    padding: 0.9rem 2.5rem;
+  .header-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    gap: 1rem;
   }
-  .topbar-breadcrumb {
-    font-size: 0.85rem;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
-  .topbar-breadcrumb span { color: var(--blue); font-weight: 600; }
-  .topbar-version {
-    background: var(--blue-light);
-    color: var(--blue);
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.25rem 0.65rem;
-    border-radius: 20px;
-    letter-spacing: 0.04em;
+  .header-sub {
+    font-size: 0.78rem;
+    opacity: 0.75;
+    margin-top: 0.2rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
-
-  /* ── Content ── */
-  .content {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 2.5rem 2.5rem 5rem;
-  }
-
-  /* ── Hero (desktop) ── */
-  .hero {
-    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 70%, var(--blue-mid) 100%);
-    border-radius: 16px;
-    padding: 3rem 3rem 2.5rem;
-    margin-bottom: 2rem;
+  .menu-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
     color: white;
+    border-radius: 8px;
+    padding: 0.55rem 0.9rem;
+    font-size: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .menu-btn:hover { background: rgba(255,255,255,0.25); }
+
+  /* ── DRAWER NAV ── */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+  }
+  .nav-overlay.open { display: block; }
+  .nav-drawer {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: min(320px, 85vw);
+    background: var(--white);
+    z-index: 201;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+  }
+  .nav-drawer.open { transform: translateX(0); }
+  .nav-drawer-header {
+    background: var(--blue);
+    color: white;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-drawer-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+  }
+  .close-btn:hover { background: rgba(255,255,255,0.2); }
+  .nav-section-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 1.2rem 1.25rem 0.4rem;
+  }
+  .nav-drawer a {
+    display: block;
+    padding: 0.7rem 1.25rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.93rem;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+  }
+  .nav-drawer a:hover, .nav-drawer a.active {
+    background: var(--red-light);
+    border-left-color: var(--blue);
+    color: var(--blue);
+  }
+  .nav-drawer a.sub {
+    padding-left: 2.2rem;
+    font-size: 0.87rem;
+    color: var(--muted);
+  }
+  .nav-drawer a.sub:hover { color: var(--blue); }
+
+  /* ── MAIN CONTENT ── */
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 0 4rem;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%);
+    color: white;
+    padding: 2.5rem 1.25rem 2rem;
+    text-align: center;
     position: relative;
     overflow: hidden;
   }
   .hero::before {
     content: '';
     position: absolute;
-    top: -30%; right: -10%;
-    width: 400px; height: 400px;
+    top: -40%; right: -20%;
+    width: 300px; height: 300px;
     background: rgba(255,255,255,0.04);
     border-radius: 50%;
   }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -20%; left: -5%;
-    width: 250px; height: 250px;
-    background: rgba(191,10,48,0.15);
-    border-radius: 50%;
-  }
   .hero-stars {
-    font-size: 1.1rem;
-    letter-spacing: 0.4em;
-    opacity: 0.5;
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
     margin-bottom: 0.75rem;
+    opacity: 0.6;
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
     font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 0.6rem;
-    position: relative;
-    z-index: 1;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
   }
-  .hero-meta {
-    font-size: 0.82rem;
-    opacity: 0.6;
-    letter-spacing: 0.08em;
+  .hero-version {
+    font-size: 0.8rem;
+    opacity: 0.65;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    position: relative;
-    z-index: 1;
+    font-weight: 300;
   }
-  .hero-bar {
-    display: flex;
-    gap: 6px;
-    margin-top: 1.5rem;
-    position: relative;
-    z-index: 1;
-  }
-  .hero-bar div {
-    height: 4px;
+  .hero-divider {
+    width: 40px; height: 3px;
+    background: var(--red);
+    margin: 1rem auto 0;
     border-radius: 2px;
   }
-  .hero-bar .b1 { width: 60px; background: white; }
-  .hero-bar .b2 { width: 30px; background: var(--red); }
-  .hero-bar .b3 { width: 20px; background: rgba(255,255,255,0.3); }
 
-  /* ── Section cards (desktop) ── */
-  .section-card {
+  /* ── SECTION ── */
+  .section {
     background: white;
+    margin: 1rem 0.75rem 0;
     border-radius: 12px;
-    border: 1px solid var(--border);
-    margin-bottom: 1.25rem;
     overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    transition: box-shadow 0.2s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
-  .section-card:hover { box-shadow: 0 4px 16px rgba(0,61,165,0.08); }
 
   .section-toggle {
     width: 100%;
     background: none;
     border: none;
-    padding: 1.25rem 1.5rem;
+    padding: 1.1rem 1.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     text-align: left;
-    gap: 1rem;
+    gap: 0.75rem;
+    transition: background 0.15s;
   }
-  .section-toggle:hover { background: var(--blue-light); }
-  .section-toggle-left {
+  .section-toggle:hover { background: var(--red-light); }
+  .section-toggle-label {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     flex: 1;
+    min-width: 0;
   }
   .section-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
+    width: 36px; height: 36px;
+    border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     flex-shrink: 0;
     background: var(--blue);
     color: white;
   }
   .section-icon.red { background: var(--red); }
-  .section-icon.teal { background: #0e7c6a; }
-  .section-icon.gold { background: #b06a00; }
-  .section-icon.green { background: #1a6b3c; }
-
+  .section-icon.teal { background: #1a7f6e; }
+  .section-icon.gold { background: #c47b00; }
   .section-toggle h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--text);
-  }
-  .section-toggle p.section-preview {
-    font-size: 0.83rem;
-    color: var(--muted);
-    margin-top: 0.15rem;
-    font-weight: 400;
-    font-family: 'Source Sans 3', sans-serif;
+    line-height: 1.3;
   }
   .chevron {
     color: var(--muted);
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: transform 0.25s;
     flex-shrink: 0;
   }
@@ -315,44 +259,45 @@
 
   .section-body {
     display: none;
-    padding: 0 1.75rem 1.75rem;
+    padding: 0 1.25rem 1.5rem;
     border-top: 1px solid var(--border);
   }
   .section-body.open { display: block; }
 
-  /* ── Typography ── */
+  /* ── TYPOGRAPHY ── */
   .section-body h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
-    color: var(--blue-dark);
-    margin: 1.5rem 0 0.6rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 2px solid var(--blue-light);
+    color: var(--blue);
+    margin: 1.4rem 0 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--red-light);
   }
-  .section-body h3:first-child { margin-top: 1.25rem; }
+  .section-body h3:first-child { margin-top: 1rem; }
   .section-body h4 {
-    font-size: 0.97rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--text);
     margin: 1.1rem 0 0.35rem;
   }
   .section-body p {
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     color: #2c3547;
     margin-bottom: 0.75rem;
     line-height: 1.75;
   }
   .section-body ul, .section-body ol {
     padding-left: 1.4rem;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.75rem;
   }
   .section-body li {
-    font-size: 0.93rem;
+    font-size: 0.92rem;
     color: #2c3547;
-    margin-bottom: 0.4rem;
-    line-height: 1.7;
+    margin-bottom: 0.35rem;
+    line-height: 1.65;
   }
+  .section-body li strong { color: var(--text); }
   .section-body a {
     color: var(--blue);
     font-weight: 600;
@@ -360,42 +305,57 @@
     text-underline-offset: 2px;
   }
 
-  /* ── Two-column grid for desktop ── */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 0.75rem 0;
-  }
-
-  /* ── Callout ── */
+  /* ── CALLOUT ── */
   .callout {
-    background: var(--blue-light);
+    background: var(--red-light);
     border-left: 4px solid var(--blue);
     border-radius: 0 8px 8px 0;
-    padding: 0.9rem 1.1rem;
-    margin: 0.85rem 0;
-    font-size: 0.9rem;
+    padding: 0.85rem 1rem;
+    margin: 0.75rem 0;
+    font-size: 0.88rem;
     color: var(--text);
     font-style: italic;
     line-height: 1.65;
   }
-  .callout.warning { background: #fff8e1; border-left-color: #e6a817; }
-  .callout.danger  { background: #fff0f3; border-left-color: var(--red); }
+  .callout.warning {
+    background: #fff8e1;
+    border-left-color: #f59e0b;
+  }
+  .callout.important {
+    background: #fef2f2;
+    border-left-color: var(--red);
+  }
 
-  /* ── Principles ── */
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+  }
+  .badge.red { background: var(--red); }
+  .badge.green { background: #15803d; }
+
+  /* ── PRINCIPLES CARDS ── */
   .principles-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
     margin-top: 0.75rem;
   }
   .principle-card {
     background: var(--cream);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 0.9rem 1rem;
+    padding: 0.85rem 1rem;
     display: flex;
+    align-items: flex-start;
     gap: 0.75rem;
   }
   .principle-num {
@@ -411,14 +371,63 @@
     flex-shrink: 0;
     margin-top: 0.05rem;
   }
-  .principle-card strong { font-size: 0.93rem; display: block; margin-bottom: 0.15rem; color: var(--blue-dark); }
-  .principle-card p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.5; }
+  .principle-card strong {
+    font-size: 0.93rem;
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--blue-dark);
+  }
+  .principle-card p {
+    font-size: 0.87rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.55;
+  }
 
-  /* ── Membership cards ── */
+  /* ── COMPLIANCE TABLE ── */
+  .compliance-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 0.75rem 0;
+  }
+  .compliance-table th {
+    background: var(--blue);
+    color: white;
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .compliance-table td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #2c3547;
+    line-height: 1.55;
+  }
+  .compliance-table tr:nth-child(even) td { background: var(--red-light); }
+  .compliance-table tr:last-child td { border-bottom: none; }
+  .due-badge {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .due-badge.green { background: #15803d; }
+  .due-badge.amber { background: #b45309; }
+
+  /* ── MEMBERSHIP TYPES ── */
   .membership-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
     margin-top: 0.75rem;
   }
   .membership-card {
@@ -430,29 +439,28 @@
     background: var(--blue);
     color: white;
     padding: 0.55rem 1rem;
-    font-size: 0.86rem;
+    font-size: 0.88rem;
     font-weight: 700;
   }
   .membership-card-body {
     padding: 0.75rem 1rem;
     font-size: 0.88rem;
     color: #2c3547;
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
-  /* ── Officer cards ── */
-  .officer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
+  /* ── OFFICER CARDS ── */
+  .officer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
     margin-top: 0.75rem;
   }
   .officer-card {
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 1rem 1.1rem;
+    padding: 1rem;
   }
-  .officer-card.full { grid-column: 1 / -1; }
   .officer-title {
     font-weight: 700;
     font-size: 0.95rem;
@@ -460,79 +468,33 @@
     margin-bottom: 0.4rem;
     display: flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.5rem;
   }
   .officer-title::before {
     content: '';
-    width: 7px; height: 7px;
+    width: 8px; height: 8px;
     background: var(--red);
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  /* ── Compliance tables ── */
-  .compliance-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.88rem;
-    margin: 0.85rem 0;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .compliance-table th {
-    background: var(--blue);
-    color: white;
-    padding: 0.65rem 0.9rem;
-    text-align: left;
-    font-weight: 700;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .compliance-table td {
-    padding: 0.7rem 0.9rem;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    color: #2c3547;
-    line-height: 1.55;
-  }
-  .compliance-table tr:last-child td { border-bottom: none; }
-  .compliance-table tr:nth-child(even) td { background: var(--blue-light); }
-  .due-badge {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 0.15rem 0.5rem;
-    border-radius: 4px;
-    white-space: nowrap;
-    background: var(--red);
-    color: white;
-  }
-  .due-badge.green { background: #15803d; }
-  .due-badge.amber { background: #9a5a00; }
-
-  /* ── Agenda ── */
+  /* ── AGENDA ── */
   .agenda-list {
     counter-reset: agenda;
     list-style: none;
     padding: 0;
     margin-top: 0.75rem;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
   }
   .agenda-list li {
     counter-increment: agenda;
     display: flex;
     align-items: center;
-    gap: 0.85rem;
-    padding: 0.65rem 1rem;
+    gap: 0.75rem;
+    padding: 0.55rem 0;
     border-bottom: 1px solid var(--border);
     font-size: 0.9rem;
   }
   .agenda-list li:last-child { border-bottom: none; }
-  .agenda-list li:nth-child(even) { background: var(--blue-light); }
   .agenda-list li::before {
     content: counter(agenda);
     min-width: 26px; height: 26px;
@@ -547,595 +509,567 @@
     flex-shrink: 0;
   }
 
-  /* ── Coming soon ── */
-  .coming-grid {
+  /* ── COMING SOON ── */
+  .coming-soon-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
     margin-top: 0.75rem;
   }
-  .coming-card {
+  .coming-soon-card {
     background: var(--cream);
     border: 1px dashed var(--border);
     border-radius: 10px;
-    padding: 1rem;
+    padding: 0.85rem;
     text-align: center;
   }
-  .coming-card .icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
-  .coming-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
-  .coming-card p { font-size: 0.78rem; color: var(--muted); margin: 0; line-height: 1.4; }
+  .coming-soon-card .icon { font-size: 1.4rem; margin-bottom: 0.35rem; }
+  .coming-soon-card h4 { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+  .coming-soon-card p { font-size: 0.76rem; color: var(--muted); margin: 0; line-height: 1.4; }
 
-  /* ══════════════════════════════════════
-     MOBILE OVERRIDES
-  ══════════════════════════════════════ */
-
-  .mobile-header { display: none; }
-
-  @media (max-width: 768px) {
-    .sidebar { display: none; }
-    .sidebar.mobile-open { display: flex; z-index: 300; }
-    .main { margin-left: 0; }
-    .topbar { display: none; }
-    .content { padding: 0.75rem 0.75rem 4rem; }
-
-    .mobile-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
-      color: white;
-      padding: 1rem 1.1rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 3px 15px rgba(0,61,165,0.3);
-    }
-    .mobile-header-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 900;
-    }
-    .mobile-header-sub {
-      font-size: 0.7rem;
-      opacity: 0.6;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-weight: 300;
-    }
-    .menu-btn {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: white;
-      border-radius: 8px;
-      padding: 0.5rem 0.85rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .hero {
-      border-radius: 10px;
-      padding: 1.75rem 1.25rem 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-    .hero h1 { font-size: 1.6rem; }
-
-    .section-card {
-      border-radius: 10px;
-      margin-bottom: 0.75rem;
-    }
-    .section-toggle { padding: 1rem 1.1rem; }
-    .section-body { padding: 0 1.1rem 1.25rem; }
-    .section-toggle h2 { font-size: 0.98rem; }
-    .section-toggle p.section-preview { display: none; }
-
-    .two-col { grid-template-columns: 1fr; }
-    .principles-grid { grid-template-columns: 1fr; }
-    .membership-grid { grid-template-columns: 1fr; }
-    .officer-grid { grid-template-columns: 1fr; }
-    .officer-card.full { grid-column: 1; }
-    .coming-grid { grid-template-columns: 1fr 1fr; }
-    .compliance-table { font-size: 0.82rem; }
-    .compliance-table th, .compliance-table td { padding: 0.55rem 0.65rem; }
-
-    /* Overlay for mobile nav */
-    .nav-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 299;
-    }
-    .nav-overlay.open { display: block; }
+  /* ── FOOTER ── */
+  footer {
+    background: var(--blue-dark);
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+    font-size: 0.8rem;
+    margin-top: 1rem;
   }
+  footer a { color: rgba(255,255,255,0.85); }
 
   @media (max-width: 400px) {
-    .coming-grid { grid-template-columns: 1fr; }
+    .coming-soon-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- MOBILE HEADER -->
-<header class="mobile-header">
-  <div>
-    <div class="mobile-header-title">DEC Manual</div>
-    <div class="mobile-header-sub">Florida Democratic Party · 2026</div>
+<!-- STICKY HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div>
+      <div class="header-title">DEC Manual</div>
+      <div class="header-sub">Florida Democratic Party · 2026 v1.0</div>
+    </div>
+    <button class="menu-btn" onclick="openNav()" aria-label="Open navigation">☰ Menu</button>
   </div>
-  <button class="menu-btn" onclick="openNav()">☰ Menu</button>
 </header>
 
-<!-- NAV OVERLAY (mobile) -->
+<!-- NAV DRAWER -->
 <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+<nav class="nav-drawer" id="navDrawer" aria-label="Main navigation">
+  <div class="nav-drawer-header">
+    <h2>Contents</h2>
+    <button class="close-btn" onclick="closeNav()" aria-label="Close">✕</button>
+  </div>
+  <div class="nav-section-label">Sections</div>
+  <a href="#intro" onclick="closeNav()">Introduction</a>
+  <a href="#principles" onclick="closeNav()" class="sub">Five Key Principles</a>
+  <a href="#dec" onclick="closeNav()">The Democratic Executive Committee</a>
+  <a href="#mandatory" onclick="closeNav()" class="sub">Mandatory Activities</a>
+  <a href="#membership" onclick="closeNav()" class="sub">Types of Membership</a>
+  <a href="#precinct" onclick="closeNav()" class="sub">Precinct Systems</a>
+  <a href="#duties" onclick="closeNav()" class="sub">Duties &amp; Responsibilities</a>
+  <a href="#meetings" onclick="closeNav()" class="sub">DEC Meetings</a>
+  <a href="#steering" onclick="closeNav()" class="sub">Steering Committee</a>
+  <a href="#clubs" onclick="closeNav()" class="sub">County Clubs &amp; Caucuses</a>
+  <a href="#statutes" onclick="closeNav()" class="sub">Statutes &amp; Bylaws</a>
+  <a href="#compliance" onclick="closeNav()">Compliance</a>
+  <a href="#recordkeeping" onclick="closeNav()" class="sub">Record Keeping</a>
+  <a href="#chart" onclick="closeNav()" class="sub">Compliance Chart</a>
+  <a href="#ongoing" onclick="closeNav()" class="sub">Ongoing Requirements</a>
+  <a href="#election-year" onclick="closeNav()" class="sub">Election Year Requirements</a>
+  <a href="#coming-soon" onclick="closeNav()">Sections Coming Soon</a>
+  <div style="height:1rem"></div>
+</nav>
 
-<div class="layout">
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-stars">★ ★ ★</div>
+    <h1>Democratic Executive<br>Committee Manual</h1>
+    <div class="hero-version">2026 &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; Florida Democratic Party</div>
+    <div class="hero-divider"></div>
+  </div>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-brand">
-      <div class="sidebar-brand-title">DEC Manual</div>
-      <div class="sidebar-brand-sub">Florida Democratic Party · 2026 v1.0</div>
-      <div class="sidebar-flag">
-        <span class="f-blue"></span><span class="f-blue"></span>
-        <span class="f-red"></span><span class="f-red"></span>
-        <span class="f-white"></span>
+  <!-- INTRODUCTION -->
+  <div class="section" id="intro">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="true">
+      <div class="section-toggle-label">
+        <div class="section-icon">📖</div>
+        <h2>Introduction</h2>
+      </div>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="section-body open">
+      <p>Florida is a diverse state with large and small counties, urban and rural counties, predominantly Democratic counties, and counties where Democrats are heavily outnumbered. No set of standardized practices can be uniformly applied to such a diverse network.</p>
+      <p>However, Democratic Executive Committees (DECs) in all counties do have common duties and responsibilities as established by Florida Statute, as well as common expectations as established by the Florida Democratic Party (FDP), and each county is a critical part of the state's success.</p>
+      <p>This manual addresses common duties and expectations and promotes best practices found in some of Florida's most successful DECs. It addresses requirements established by Florida law and by FDP bylaws, as well as operating rules vital to the FDP's continuity and efficiency.</p>
+      <p>DECs are a crucial part of a statewide party infrastructure that often needs to act with speed, consistency, and uniformity to achieve the goal of electing Federal, State, and local Democrats throughout Florida.</p>
+      <div class="callout">
+        <strong>Living Document:</strong> This Handbook will be updated and improved as needs change and circumstances warrant. DEC chairs will make the handbook available to their membership.
+      </div>
+      <p>A large group of invigorated, well-trained grassroots Democrats is one of Florida's very best resources. We recommend this handbook be widely dispersed among all DEC members so everyone can be kept well informed about the DEC's job and how it fits into the larger picture.</p>
+
+      <h3 id="principles">Five Important Principles of the DECs</h3>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-num">1</div>
+          <div>
+            <strong>It's About the DECs!</strong>
+            <p>Within the context of the DEC, none of us is more important than our common objective.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-num">2</div>
+          <div>
+            <strong>Mutual Respect</strong>
+            <p>Maintain a culture of mutual respect, keeping personal bickering to an absolute minimum.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-num">3</div>
+          <div>
+            <strong>Innovation</strong>
+            <p>Smart, creative ideas are the key to success.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-num">4</div>
+          <div>
+            <strong>High Expectations</strong>
+            <p>We will have high expectations of each other, understanding that everyone is fallible.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-num">5</div>
+          <div>
+            <strong>Openness</strong>
+            <p>Everything we do — meetings, voting, documentation, finances — will be open to all members.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <nav class="sidebar-nav">
-      <div class="nav-group-label">Manual</div>
-      <a href="#intro" class="nav-link" onclick="navClick(this,'intro')"><span class="nav-icon">📖</span> Introduction</a>
-      <a href="#principles" class="nav-link sub" onclick="navClick(this,'principles')">Five Key Principles</a>
-      <a href="#dec" class="nav-link" onclick="navClick(this,'dec')"><span class="nav-icon">🏛️</span> The DEC</a>
-      <a href="#mandatory" class="nav-link sub" onclick="navClick(this,'mandatory')">Mandatory Activities</a>
-      <a href="#membership" class="nav-link sub" onclick="navClick(this,'membership')">Membership Types</a>
-      <a href="#precinct" class="nav-link sub" onclick="navClick(this,'precinct')">Precinct Systems</a>
-      <a href="#duties" class="nav-link" onclick="navClick(this,'duties')"><span class="nav-icon">👥</span> Duties &amp; Responsibilities</a>
-      <a href="#meetings" class="nav-link" onclick="navClick(this,'meetings')"><span class="nav-icon">📅</span> DEC Meetings</a>
-      <a href="#steering" class="nav-link" onclick="navClick(this,'steering')"><span class="nav-icon">🤝</span> Steering, Clubs &amp; Caucuses</a>
-      <div class="nav-group-label">Compliance</div>
-      <a href="#compliance" class="nav-link" onclick="navClick(this,'compliance')"><span class="nav-icon">✅</span> Overview</a>
-      <a href="#recordkeeping" class="nav-link sub" onclick="navClick(this,'recordkeeping')">Record Keeping</a>
-      <a href="#annual" class="nav-link sub" onclick="navClick(this,'annual')">Annual Requirements</a>
-      <a href="#ongoing" class="nav-link sub" onclick="navClick(this,'ongoing')">Ongoing Requirements</a>
-      <a href="#election-year" class="nav-link sub" onclick="navClick(this,'election-year')">Election Year</a>
-      <div class="nav-group-label">More</div>
-      <a href="#coming-soon" class="nav-link" onclick="navClick(this,'coming-soon')"><span class="nav-icon">🔜</span> Coming Soon</a>
-    </nav>
-    <div class="sidebar-footer">
-      <div>Florida Democratic Party</div>
-      <a href="/cdn-cgi/l/email-protection#e3b38291979aa28585828a9190a3a58f8c918a8782a7868e90cd8c9184"><span class="__cf_email__" data-cfemail="4b1b2a393f320a2d2d2a2239380b0d272439222f2a0f2e26386524392c">[email&#160;protected]</span></a>
+  </div>
+
+  <!-- THE DEC -->
+  <div class="section" id="dec">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="section-toggle-label">
+        <div class="section-icon">🏛️</div>
+        <h2>The Democratic Executive Committee</h2>
+      </div>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="section-body">
+      <p>As Tip O'Neill said, "All politics is local." Our activism starts in town halls and community centers, and our energy comes from a multitude of diverse interests and opinions. Our grassroots nature calls for a wide array of committees, clubs, and caucuses.</p>
+
+      <h3>What is a DEC?</h3>
+      <p>A DEC is an official county arm of the FDP. The DEC shall have oversight of all Democratic Party activities within the county. It shall carry out all directives granted to it by the FDP and by Florida statutes.</p>
+      <p>As part of this effort, the DEC shall:</p>
+      <ol>
+        <li>Effectively support the election of Democrats</li>
+        <li>Create an organizational 5–10 year strategic plan, updating every 2 years</li>
+        <li>Create an election plan for every election cycle and modify as needed</li>
+        <li>Advance the visibility and viability of the Democratic Party within the county</li>
+        <li>Register Voters in Democrat-leaning areas regularly</li>
+        <li>Increase the number of Vote-by-Mail requests for Democrats and like-minded voters</li>
+        <li>Ensure Democratic Party values and initiatives are effectively advanced within the county</li>
+        <li>Engage as much as possible in local county affairs of interest to county Democrats</li>
+        <li>Communicate with the public regarding elections and Democratic candidates</li>
+      </ol>
+      <div class="callout">
+        Precinct/District Committeepersons make up the majority of a DEC's membership. Elections for these positions are held every four years during the primary election cycle of every Presidential election year.
+      </div>
+
+      <h3 id="mandatory">Mandatory DEC Activities</h3>
+      <p>Several activities are required of a county DEC to ensure every effort is made to win elections at all levels:</p>
+      <ol>
+        <li>Recruit, train, and retain volunteers including Precinct/District Committeepersons by creating a welcoming, energizing space</li>
+        <li>Register Voters</li>
+        <li>Encourage Vote-by-Mail enrollment</li>
+        <li>Fundraise for DEC operations, campaign initiatives, local candidates, and GOTV efforts</li>
+        <li>Turnout of the Democratic base in all elections held within the county</li>
+        <li>Utilize all voter outreach tools, including VAN, phone banking, texting, postcarding, emailing, and social media</li>
+        <li>Recruit candidates</li>
+        <li>Establish a voter protection team to ensure elections are run fairly</li>
+        <li>Ensure compliance with State Statutes and FDP/DEC bylaws</li>
+      </ol>
+
+      <h3 id="membership">Types of DEC Membership</h3>
+      <p>Defined by Florida Statutes, Chapter 103.091 and FDP Bylaws, Article V, Section 1:</p>
+      <div class="membership-grid">
+        <div class="membership-card">
+          <div class="membership-card-header">1. Elected Members (Precinct / District Committeepersons)</div>
+          <div class="membership-card-body">Chosen in the presidential election-year primary to represent a precinct or district. Take office on the first day of the month following the presidential general election and serve a four-year term.</div>
+        </div>
+        <div class="membership-card">
+          <div class="membership-card-header">2. Automatic Members</div>
+          <div class="membership-card-body">Members by virtue of Florida Statutes or DEC bylaw — county Democratic elected officials and presidents of duly chartered clubs or local caucus chapters who reside in the county. Have voting privileges but may not serve as officers.</div>
+        </div>
+        <div class="membership-card">
+          <div class="membership-card-header">3. Appointed (At-large) Members</div>
+          <div class="membership-card-body">Appointed by the County DEC Chair and approved by majority vote. Limited to no more than 10% of the county's total elected membership. Have voting privileges but may not serve as officers.</div>
+        </div>
+        <div class="membership-card">
+          <div class="membership-card-header">4. Special At-Large Members</div>
+          <div class="membership-card-body">At any time after election of officers, a county DEC may allow special at-large status for a Democratic Party elected official. Not included in the appointed membership quota.</div>
+        </div>
+      </div>
+
+      <h3 id="precinct">Precinct Systems</h3>
+      <h4>Standard Precinct System</h4>
+      <p>The default setup: elected DEC membership is organized by precinct, with one man and one woman elected from each precinct. As precinct Democratic registration grows, the bylaws add capacity — each precinct earns an additional man and woman for every additional 1,000 registered Democrats.</p>
+      <h4>Optional Precinct System</h4>
+      <p>In counties with fewer than 200 precincts, bylaws allow an "optional" precinct approach that still keeps representation rooted in precincts, but gives the county flexibility to add members to cover precincts that exceed 1,000 registered voters.</p>
+      <h4>District System</h4>
+      <p>In counties with more than 100 precincts, a DEC can choose — by majority vote taken before December 31 in the year before a presidential-election year — to elect members by "election districts" instead of individual precincts. One man and one woman per district, with additional seats added as the district's Democratic registration exceeds 1,000.</p>
     </div>
-  </aside>
+  </div>
 
-  <!-- MAIN -->
-  <div class="main">
-    <!-- TOPBAR (desktop) -->
-    <div class="topbar">
-      <div class="topbar-breadcrumb">DEC Manual &rsaquo; <span>Florida Democratic Party</span></div>
-      <div class="topbar-version">2026 · Version 1.0</div>
+  <!-- DUTIES & RESPONSIBILITIES -->
+  <div class="section" id="duties">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="section-toggle-label">
+        <div class="section-icon red">👥</div>
+        <h2>Duties &amp; Responsibilities</h2>
+      </div>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="section-body">
+      <h3>DEC Members</h3>
+      <p>Every DEC member should be actively engaged in party activities by:</p>
+      <ul>
+        <li>Supporting their precinct/district plans and county campaign plans</li>
+        <li>Playing an active role in Get Out The Vote (GOTV), Early Voting, and Vote-by-Mail programs</li>
+        <li>Attending all DEC meetings in person or by proxy</li>
+        <li>Assisting in filling vacancies in precinct/district committee offices</li>
+        <li>Facilitating the distribution of all Democratic campaign literature</li>
+        <li>Assisting in fundraising activities of the DEC</li>
+        <li>Taking and abiding by the Party loyalty oath</li>
+        <li>Serving on one of the DEC standing committees</li>
+        <li>Participating in Election Day activities such as providing rides to the polls, poll watching, canvassing, and phone banking</li>
+      </ul>
+
+      <div class="officer-list">
+        <div class="officer-card">
+          <div class="officer-title">DEC Chair</div>
+          <p style="font-size:0.9rem;color:#2c3547;line-height:1.65;">The leader and presiding officer of the official county arm of the FDP. Responsible for supporting the election of Democrats at all levels, executing FDP policies, and maintaining operational, legal, and bylaw compliance. Acts as the official spokesperson for the Democratic Party within the county.</p>
+          <a href="https://docs.google.com/document/d/11IStv7mz_mJBKjvXnlocGBfbWfrB1m-S/edit" target="_blank" style="font-size:0.85rem;">📄 Full Duties of DEC Chair →</a>
+        </div>
+        <div class="officer-card">
+          <div class="officer-title">DEC Vice Chair (First Vice Chair)</div>
+          <p style="font-size:0.9rem;color:#2c3547;line-height:1.65;">An elected officer and member of the Steering Committee. In the absence of the Chair, the Vice Chair assumes their duties. Serves as an ex-officio member of all committees.</p>
+        </div>
+        <div class="officer-card">
+          <div class="officer-title">DEC Secretary</div>
+          <p style="font-size:0.9rem;color:#2c3547;line-height:1.65;">Keeper of records. Key responsibilities include:</p>
+          <ul style="margin-top:0.4rem;">
+            <li>Take, record, and present minutes at all DEC meetings</li>
+            <li>Forward minutes to Party Affairs within 20 days of approval</li>
+            <li>Send notice of a general meeting at least 10 days prior</li>
+            <li>Send membership list changes to Party Affairs and SOE within 10 days</li>
+            <li>Serve on credentials/membership committee</li>
+          </ul>
+        </div>
+        <div class="officer-card">
+          <div class="officer-title">DEC Treasurer</div>
+          <p style="font-size:0.9rem;color:#2c3547;line-height:1.65;">Chief financial officer for the local party. Key responsibilities include:</p>
+          <ul style="margin-top:0.4rem;">
+            <li>Deposit all DEC funds in designated bank(s)</li>
+            <li>Keep accurate records of all receipts and expenditures</li>
+            <li>Provide an accounting at each DEC meeting</li>
+            <li>File all required reports with the Supervisor of Elections (SOE)</li>
+            <li>Arrange an annual financial audit and file with FDP and SOE by April 1</li>
+          </ul>
+          <a href="https://docs.google.com/document/d/1K469KzDR4hea4cQRsg8kgFpEu7OandJp/edit" target="_blank" style="font-size:0.85rem;display:block;margin-top:0.5rem;">📄 Full Duties of DEC Treasurer →</a>
+        </div>
+        <div class="officer-card">
+          <div class="officer-title">State Committee Members</div>
+          <p style="font-size:0.9rem;color:#2c3547;line-height:1.65;">Facilitate communication between the state and local party; take issues from the DEC to the FDP; report FDP business to the DEC; keep DEC informed of all changes in the Charter and Bylaws; and attend all State Executive Committee meetings.</p>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="content">
+  <!-- DEC MEETINGS -->
+  <div class="section" id="meetings">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="section-toggle-label">
+        <div class="section-icon teal">📅</div>
+        <h2>DEC Meetings</h2>
+      </div>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="section-body">
+      <p>DECs meet regularly throughout the year to discuss responsibilities, challenges, and issues facing Democrats at all levels. While a quarterly meeting is sufficient for FDP minimum requirements, <strong>best practice is a regular monthly meeting</strong>, ideally held on a consistent date and in a consistent, accessible space.</p>
 
-      <!-- HERO -->
-      <div class="hero">
-        <div class="hero-stars">★ ★ ★</div>
-        <h1>Democratic Executive<br>Committee Manual</h1>
-        <div class="hero-meta">2026 &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; Florida Democratic Party</div>
-        <div class="hero-bar"><div class="b1"></div><div class="b2"></div><div class="b3"></div></div>
+      <h3>Methods to Call a Meeting</h3>
+      <h4>Call by the Chair</h4>
+      <p>DEC Chairs may call General meetings with at least <strong>10 days'</strong> written notice. Special meetings require at least <strong>5 days'</strong> written notice, and the notice must clearly state the purpose.</p>
+
+      <h4>Call by Petition</h4>
+      <p>If a DEC Chair receives a written petition signed by at least <strong>30% of total membership</strong> (excluding Automatic members), the Chair must schedule a Special meeting within 20 days, with at least 14 days' written notice to all members.</p>
+
+      <h4>Failure-to-Call (Reorganization)</h4>
+      <p>If the State Chair determines the DEC has failed to hold a meeting with quorum for <strong>six consecutive months</strong>, the State Chair may direct Congressional District Chair(s)/Vice Chair(s) to convene a reorganization meeting with at least 14 days' notice.</p>
+
+      <h3>Establishing a Quorum</h3>
+      <p>Per FDP Bylaws (Article I, Section 1.3.6), DEC general meetings have a quorum if <strong>25% of the membership</strong> is present, excluding automatic members. Before the meeting is called to order, the chair should confirm quorum with the secretary or credentials committee.</p>
+
+      <h3 id="agenda">Sample Meeting Agenda</h3>
+      <ol class="agenda-list">
+        <li>Call to Order</li>
+        <li>Pledge of Allegiance</li>
+        <li>Roll Call / Declaration of Quorum</li>
+        <li>Approval of Agenda</li>
+        <li>Approval of Minutes</li>
+        <li>Officers Report (Chair, Vice Chair, Secretary, Treasurer, and/or State Committee)</li>
+        <li>Old Business</li>
+        <li>New Business</li>
+        <li>Announcements</li>
+        <li>Adjournment</li>
+      </ol>
+      <div class="callout">
+        💡 Guest speakers, local candidates, and celebrations of volunteer effort are excellent additions to any DEC meeting. Use your meeting to celebrate and motivate — people support that which they help to create.
       </div>
 
-      <!-- INTRODUCTION -->
-      <div class="section-card" id="intro">
-        <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
-          <div class="section-toggle-left">
-            <div class="section-icon">📖</div>
-            <div>
-              <h2>Introduction</h2>
-              <p class="section-preview">Purpose, background, and how to use this manual</p>
-            </div>
-          </div>
-          <span class="chevron">▾</span>
-        </button>
-        <div class="section-body">
-          <p>Florida is a diverse state with large and small counties, urban and rural counties, predominantly Democratic counties, and counties where Democrats are heavily outnumbered. No set of standardized practices can be uniformly applied to such a diverse network.</p>
-          <p>However, Democratic Executive Committees (DECs) in all counties have common duties and responsibilities as established by Florida Statute, as well as common expectations as established by the Florida Democratic Party (FDP). Each county is a critical part of the state's success.</p>
-          <p>This manual addresses common duties and expectations and promotes best practices found in Florida's most successful DECs. It addresses requirements established by Florida law and FDP bylaws, as well as operating rules vital to the FDP's continuity and efficiency.</p>
-          <div class="callout">
-            <strong>Living Document:</strong> This Handbook will be updated and improved as needs change. DEC chairs will make the handbook available to their membership.
-          </div>
+      <h3>Voting at Meetings</h3>
+      <p>Voting shall be one (1) vote for each member. Per Article I, Section 4.1.1 of the FDP Charter, <strong>no vote shall be taken by secret ballot.</strong></p>
 
-          <h3 id="principles">Five Important Principles of the DECs</h3>
-          <div class="principles-grid">
-            <div class="principle-card"><div class="principle-num">1</div><div><strong>It's About the DECs!</strong><p>None of us is more important than our common objective.</p></div></div>
-            <div class="principle-card"><div class="principle-num">2</div><div><strong>Mutual Respect</strong><p>Maintain a culture of mutual respect, keeping personal bickering to a minimum.</p></div></div>
-            <div class="principle-card"><div class="principle-num">3</div><div><strong>Innovation</strong><p>Smart, creative ideas are the key to success.</p></div></div>
-            <div class="principle-card"><div class="principle-num">4</div><div><strong>High Expectations</strong><p>High expectations of each other, with understanding that everyone is fallible.</p></div></div>
-            <div class="principle-card" style="grid-column:1/-1"><div class="principle-num">5</div><div><strong>Openness</strong><p>Everything we do — meetings, voting, documentation, finances — will be open to all members.</p></div></div>
-          </div>
+      <h3>Proxies</h3>
+      <p>Any member unable to attend may execute a written proxy and provide it to a DEC officer prior to the meeting. Incomplete proxies shall be returned to the member. The proxy holder shall be either another DEC member or a qualified Democrat who resides in the same precinct/district. <strong>No person shall hold more than one (1) proxy.</strong></p>
+      <div class="callout">A proxy form is included in the Appendix of this manual.</div>
+    </div>
+  </div>
+
+  <!-- STEERING, CLUBS, CAUCUSES -->
+  <div class="section" id="steering">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="section-toggle-label">
+        <div class="section-icon gold">🤝</div>
+        <h2>Steering Committee, Clubs &amp; Caucuses</h2>
+      </div>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="section-body">
+      <h3>Steering Committee</h3>
+      <p>A Steering Committee supervises, administers, and carries out business between meetings of the DEC. The committee may take actions on behalf of the party only to the extent those actions are not inconsistent with applicable law, the FDP Charter and Bylaws, and the county DEC's bylaws. Decisions made by the Steering Committee should be ratified by the DEC at the next meeting.</p>
+      <p>The Steering Committee usually consists of the DEC officers, must include at least two State committee persons of different genders, and may include other members such as Sergeant at Arms, Parliamentarian, District leaders, Club and/or caucus presidents, Committee chairs, and Chair appointments.</p>
+
+      <h3 id="clubs">County Clubs</h3>
+      <p>Per FDP Bylaws Article VI Section 2, the charter of a Democratic club shall be entirely within the jurisdiction of the county Democratic Executive Committee where the majority of the membership resides. A county DEC shall not be authorized to establish a maximum number of Democratic clubs for the county.</p>
+      <div class="callout">For more information on chartering or running a County Democratic Club, contact <a href="mailto:PartyAffairs@FloridaDems.org">PartyAffairs@FloridaDems.org</a>.</div>
+
+      <h3>County Caucuses</h3>
+      <p>Local caucus chapters are chartered by State Caucuses. State Caucuses are under the jurisdiction of the FDP. For more information on chartering or running a county Democratic caucus, contact the appropriate State Caucus.</p>
+
+      <h3>Democratic County Chairs Association (DCCA)</h3>
+      <p>An independent organization created by the FDP to further the development of county DECs. Membership is composed of DEC Chairs and Vice Chairs (voting privileges reserved for dues-paying members). The DCCA promotes communication and exchange of ideas among chairs and vice chairs, and assists in furthering FDP objectives at the local, county, state, and national levels.</p>
+
+      <h3>Small County Coalition (SCC)</h3>
+      <p>A dependent organization created by the FDP for DECs in counties with fewer than 40,000 registered Democrats. Voting privileges are reserved for the Chairs, Vice Chairs, and State Committee Members of dues-paying counties. The SCC serves as the voice of all small counties to the FDP and holds monthly virtual meetings providing training, support, and encouragement.</p>
+
+      <h3 id="statutes">Statutes and Bylaws Governing DECs</h3>
+      <p>The Florida Statutes and FDP Charter &amp; Bylaws govern all DEC activities. Key statutory references include Florida Statute 103.091 governing membership structure, and FDP Charter Articles I and V governing meeting rules, quorum, proxies, and officer duties.</p>
+      <p><a href="https://docs.google.com/document/d/1s6dNNEZk1nceNTtXZeiLXbH_aAdQOgV6jkKO1yfh6CE/edit" target="_blank">📄 Full Statutes and Bylaws Reference Document →</a></p>
+    </div>
+  </div>
+
+  <!-- COMPLIANCE -->
+  <div class="section" id="compliance">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="section-toggle-label">
+        <div class="section-icon red">✅</div>
+        <h2>Compliance</h2>
+      </div>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="section-body">
+      <div class="callout important">
+        <strong>Compliance is more than a box to check</strong> — it is the foundation of a well-run County Party. It means following all applicable state election laws, as well as the FDP Charter and Bylaws, while using best practices to maintain and govern the County Party.
+      </div>
+      <p>Meeting compliance requirements involves more than understanding the rules; it means providing documentation to prove your County Party is operating transparently, legally, and ethically. Well-run organizations take compliance seriously because it signals to members, donors, and voters that the organization has integrity and can be trusted.</p>
+      <div class="callout warning">
+        <strong>Risks of non-compliance:</strong> financial penalties, loss of trust among members and voters, damaged relationships with elected officials, potential social media backlash, State Party intervention, or worst-case scenario, loss of Charter.
+      </div>
+
+      <h3 id="recordkeeping">Record Keeping</h3>
+      <p>Documentation of DEC votes, actions taken, financial reports, membership lists, bylaws, and correspondence must be documented. It is recommended that all records be kept for at least <strong>3 years</strong>, preferably in cloud/digital storage.</p>
+      <p>All <strong>ballots from elections</strong> must be kept for a minimum of 6 months and are reviewable by a DEC member upon written request. Inspection must be supervised by two DEC officers, then resealed. Both officers must sign, date, and note the time opened and resealed.</p>
+
+      <h3 id="chart">Part 1: Annual / First Quarter Compliance</h3>
+      <div style="overflow-x:auto;">
+        <table class="compliance-table">
+          <thead>
+            <tr>
+              <th>Due Date</th>
+              <th>Activity</th>
+              <th>Citation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="due-badge">Jan 31</span></td>
+              <td>Complete &amp; updated DEC membership list with demographic data and Party Leader Template</td>
+              <td>FDP Bylaws Art. V, Sec. 5.3</td>
+            </tr>
+            <tr>
+              <td><span class="due-badge">Jan 31</span></td>
+              <td>Most recent set of bylaws reflecting any new FDP bylaw changes</td>
+              <td>FDP Charter Art. V, Sec. 5; Art. VIII, Sec. 3; FDP Bylaws Art. VIII, Sec. 1</td>
+            </tr>
+            <tr>
+              <td><span class="due-badge">Jan 31</span></td>
+              <td>Remit 20% of clubs' annual Party contribution to FDP</td>
+              <td>FDP Bylaws Art. VI, Sec. 2.5</td>
+            </tr>
+            <tr>
+              <td><span class="due-badge amber">Apr 1</span></td>
+              <td>Submit a Diversity and Inclusion plan to the FDP</td>
+              <td>FDP Charter Art. II, Sec. 2.1.4; FDP Bylaws Art. V, Sec. 5.2</td>
+            </tr>
+            <tr>
+              <td><span class="due-badge amber">Apr 1</span></td>
+              <td>Audit of DEC income and expenses filed with SOE and FDP</td>
+              <td>FLA STAT. Sec. 103.121(2); FDP Charter Art. V, Sec. 6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="ongoing">Part 2: Ongoing Compliance</h3>
+      <div style="overflow-x:auto;">
+        <table class="compliance-table">
+          <thead>
+            <tr>
+              <th>Due Date</th>
+              <th>Activity</th>
+              <th>Citation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="due-badge green">10 days</span><br><small>of any change</small></td>
+              <td>Provide membership updates to FDP and SOE</td>
+              <td>FLA STAT. Sec. 103.091(3); FDP Bylaws Art. V, Sec. 5.3</td>
+            </tr>
+            <tr>
+              <td><span class="due-badge green">20 days</span><br><small>after meeting</small></td>
+              <td>Approved meeting minutes sent to FDP</td>
+              <td>FDP Bylaws Art. V, Sec. 5.4</td>
+            </tr>
+            <tr>
+              <td><span class="due-badge green">30 days</span><br><small>of adoption</small></td>
+              <td>Submit copy of bylaws and any amendments to FDP and Rules Committee Chair</td>
+              <td>FDP Charter Art. V, Sec. 5; Art. VIII, Sec. 3</td>
+            </tr>
+            <tr>
+              <td><span class="due-badge">10th day</span><br><small>after each quarter</small></td>
+              <td>File reports of all contributions received and expenditures made with SOE</td>
+              <td>FLA STAT. Sec. 106.29</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="election-year">Part 3: Election Year Compliance</h3>
+
+      <h4>Non-Endorsement Statement — Due: April 1</h4>
+      <p>A signed statement regarding the DEC's intention to endorse or not endorse candidates in a Primary must be sent to FDP by April 1 of the certifying year, as well as submitted to the County Supervisor of Elections' office. A non-endorsement statement is necessary to qualify for the DEC portion of any applicable candidate assessment and filing fees.</p>
+      <p><em>Citation: FLA STAT 103.121(4)(5); FDP Bylaws Article V, Sec. 3; FDP Bylaws Article 7, Sec. 7</em></p>
+
+      <h4>Independent Expenditure Statement — Due: First Day of Qualifying (Second Monday of June)</h4>
+      <p>The DEC Chair will send a notarized letter via certified mail to the Secretary of State. This Statement affirms the DEC has not made, and will not make, an independent expenditure in support of or opposition to any candidate through and including the upcoming general election.</p>
+      <p><em>Citation: FLA. STAT. Sec. 106.087(1)(a)</em></p>
+
+      <h4>Campaign Plan (Election Budget)</h4>
+      <p>A DEC receiving Party assessment fees shall submit a campaign/election budget plan detailing the expenditure of those fees to the FDP and the Budget and Finance Committee for approval.</p>
+      <p><em>Citations: FDP Charter Article V, Sec. 6; FDP Bylaws Article V, Sec. 6</em></p>
+
+      <h3>Annual Club Party Contributions</h3>
+      <p>In January of each year, each Democratic club chartered under the rules of the FDP shall pay an annual contribution based on membership as of December 31 of the preceding year:</p>
+      <table class="compliance-table">
+        <thead>
+          <tr><th>Membership</th><th>Annual Contribution</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0–50 members</td><td>$25</td></tr>
+          <tr><td>51–100 members</td><td>$50</td></tr>
+          <tr><td>101–300 members</td><td>$75</td></tr>
+          <tr><td>301–500 members</td><td>$100</td></tr>
+          <tr><td>501–750 members</td><td>$150</td></tr>
+          <tr><td>751–1,000 members</td><td>$250</td></tr>
+          <tr><td>Over 1,000 members</td><td>$500</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:0.5rem;">80% of the contribution remains with the county DEC; 20% is remitted to the FDP by the county DEC no later than April 1.</p>
+      <p><em>Regulatory citation: FDP Bylaws Article VI, Sec. 2.5</em></p>
+
+      <div class="callout">For detailed guidance on financial reports to the FDP and Supervisor of Elections, contact <a href="mailto:PartyAffairs@FloridaDems.org">PartyAffairs@FloridaDems.org</a></div>
+    </div>
+  </div>
+
+  <!-- COMING SOON -->
+  <div class="section" id="coming-soon">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="section-toggle-label">
+        <div class="section-icon">🔜</div>
+        <h2>Sections Coming Soon</h2>
+      </div>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="section-body">
+      <p>The following sections are currently being developed and will be included in future versions of this manual:</p>
+      <div class="coming-soon-grid">
+        <div class="coming-soon-card">
+          <div class="icon">📋</div>
+          <h4>Robert's Rules Cheat Sheet</h4>
+          <p>Quick reference for common meeting procedures</p>
+        </div>
+        <div class="coming-soon-card">
+          <div class="icon">🔄</div>
+          <h4>DEC Re-Organization</h4>
+          <p>Guidance following presidential elections</p>
+        </div>
+        <div class="coming-soon-card">
+          <div class="icon">🗳️</div>
+          <h4>Campaign and Field</h4>
+          <p>GOTV strategies, voter registration, and Vote-by-Mail</p>
+        </div>
+        <div class="coming-soon-card">
+          <div class="icon">💰</div>
+          <h4>Fundraising</h4>
+          <p>Direct asks, event planning, and compliance</p>
+        </div>
+        <div class="coming-soon-card">
+          <div class="icon">🏃</div>
+          <h4>Candidate Recruitment</h4>
+          <p>Identifying and supporting Democratic candidates</p>
+        </div>
+        <div class="coming-soon-card">
+          <div class="icon">📢</div>
+          <h4>Communications</h4>
+          <p>Websites, social media, and media relations</p>
+        </div>
+        <div class="coming-soon-card" style="grid-column: 1 / -1;">
+          <div class="icon">📎</div>
+          <h4>Appendix</h4>
+          <p>Forms and templates including Proxy Form, Loyalty Oath, VBM Forms, Sample Agenda, Minutes, Non-Endorsement Statement, and more</p>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- THE DEC -->
-      <div class="section-card" id="dec">
-        <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
-          <div class="section-toggle-left">
-            <div class="section-icon">🏛️</div>
-            <div>
-              <h2>The Democratic Executive Committee</h2>
-              <p class="section-preview">What a DEC is, its mandate, and membership types</p>
-            </div>
-          </div>
-          <span class="chevron">▾</span>
-        </button>
-        <div class="section-body">
-          <p>A DEC is an official county arm of the FDP with oversight of all Democratic Party activities within the county. As Tip O'Neill said, "All politics is local."</p>
-          <h3>Responsibilities of the DEC</h3>
-          <div class="two-col">
-            <ol style="margin:0;padding-left:1.3rem;">
-              <li>Effectively support the election of Democrats</li>
-              <li>Create a 5–10 year strategic plan, updating every 2 years</li>
-              <li>Create an election plan for every cycle</li>
-              <li>Advance visibility of the Democratic Party in the county</li>
-              <li>Register Voters in Democrat-leaning areas regularly</li>
-            </ol>
-            <ol start="6" style="margin:0;padding-left:1.3rem;">
-              <li>Increase Vote-by-Mail requests for Democrats</li>
-              <li>Ensure Democratic values are advanced within the county</li>
-              <li>Engage in local county affairs of interest to Democrats</li>
-              <li>Communicate with the public regarding elections and candidates</li>
-            </ol>
-          </div>
+</main>
 
-          <h3 id="mandatory">Mandatory DEC Activities</h3>
-          <div class="two-col">
-            <ol style="margin:0;padding-left:1.3rem;">
-              <li>Recruit, train, and retain volunteers</li>
-              <li>Register Voters</li>
-              <li>Encourage Vote-by-Mail enrollment</li>
-              <li>Fundraise for operations and GOTV</li>
-              <li>Turn out the Democratic base in all elections</li>
-            </ol>
-            <ol start="6" style="margin:0;padding-left:1.3rem;">
-              <li>Use all voter outreach tools (VAN, texting, social media)</li>
-              <li>Recruit candidates</li>
-              <li>Establish a voter protection team</li>
-              <li>Ensure compliance with statutes and bylaws</li>
-            </ol>
-          </div>
+<footer>
+  <p>Florida Democratic Party &nbsp;·&nbsp; DEC Manual 2026 v1.0</p>
+  <p style="margin-top:0.4rem;"><a href="mailto:PartyAffairs@FloridaDems.org">PartyAffairs@FloridaDems.org</a></p>
+</footer>
 
-          <h3 id="membership">Types of DEC Membership</h3>
-          <p>Defined by Florida Statutes, Chapter 103.091 and FDP Bylaws, Article V, Section 1:</p>
-          <div class="membership-grid">
-            <div class="membership-card">
-              <div class="membership-card-header">1. Elected Members</div>
-              <div class="membership-card-body">Chosen in the presidential election-year primary. Serve a four-year term. Precinct or District Committeepersons.</div>
-            </div>
-            <div class="membership-card">
-              <div class="membership-card-header">2. Automatic Members</div>
-              <div class="membership-card-body">Members by virtue of Florida Statutes — county Democratic elected officials and club/caucus presidents. May vote but not serve as officers.</div>
-            </div>
-            <div class="membership-card">
-              <div class="membership-card-header">3. Appointed (At-large) Members</div>
-              <div class="membership-card-body">Appointed by Chair, approved by majority vote. Limited to 10% of total elected membership. May vote but not serve as officers.</div>
-            </div>
-            <div class="membership-card">
-              <div class="membership-card-header">4. Special At-Large Members</div>
-              <div class="membership-card-body">At-large status for a Democratic Party elected official. Not included in the appointed membership quota.</div>
-            </div>
-          </div>
-
-          <h3 id="precinct">Precinct Systems</h3>
-          <div class="two-col">
-            <div>
-              <h4>Standard Precinct System</h4>
-              <p style="font-size:0.9rem;">Default setup: one man and one woman elected from each precinct. Additional seats added for every 1,000 registered Democrats.</p>
-            </div>
-            <div>
-              <h4>Optional Precinct System</h4>
-              <p style="font-size:0.9rem;">For counties with fewer than 200 precincts. Gives flexibility to add members to cover precincts exceeding 1,000 registered voters.</p>
-            </div>
-          </div>
-          <h4>District System</h4>
-          <p>In counties with more than 100 precincts, a DEC can choose — by majority vote before December 31 in the year before a presidential-election year — to elect members by "election districts" instead of individual precincts.</p>
-        </div>
-      </div>
-
-      <!-- DUTIES -->
-      <div class="section-card" id="duties">
-        <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
-          <div class="section-toggle-left">
-            <div class="section-icon red">👥</div>
-            <div>
-              <h2>Duties &amp; Responsibilities</h2>
-              <p class="section-preview">Roles for members, chair, vice chair, secretary, treasurer, and state committee</p>
-            </div>
-          </div>
-          <span class="chevron">▾</span>
-        </button>
-        <div class="section-body">
-          <h3>DEC Members</h3>
-          <div class="two-col">
-            <ul style="margin:0;">
-              <li>Support precinct/district and county campaign plans</li>
-              <li>Active role in GOTV, Early Voting, and Vote-by-Mail</li>
-              <li>Attend all DEC meetings in person or by proxy</li>
-              <li>Assist in filling precinct/district vacancies</li>
-              <li>Distribute Democratic campaign literature</li>
-            </ul>
-            <ul style="margin:0;">
-              <li>Assist in fundraising activities</li>
-              <li>Take and abide by the Party loyalty oath</li>
-              <li>Serve on one DEC standing committee</li>
-              <li>Participate in Election Day activities</li>
-              <li>Phone banking, canvassing, and rides to the polls</li>
-            </ul>
-          </div>
-
-          <h3>Officers</h3>
-          <div class="officer-grid">
-            <div class="officer-card">
-              <div class="officer-title">DEC Chair</div>
-              <p style="font-size:0.88rem;color:#2c3547;line-height:1.6;">Leader and presiding officer of the county arm of the FDP. Responsible for supporting the election of Democrats, executing FDP policies, and maintaining legal and bylaw compliance. Official spokesperson for the Democratic Party within the county.</p>
-              <a href="https://docs.google.com/document/d/11IStv7mz_mJBKjvXnlocGBfbWfrB1m-S/edit" target="_blank" style="font-size:0.83rem;display:block;margin-top:0.5rem;">📄 Full Duties of DEC Chair →</a>
-            </div>
-            <div class="officer-card">
-              <div class="officer-title">DEC Vice Chair</div>
-              <p style="font-size:0.88rem;color:#2c3547;line-height:1.6;">Elected officer and member of the Steering Committee. Assumes the duties of the Chair in their absence. Serves as ex-officio member of all committees.</p>
-            </div>
-            <div class="officer-card">
-              <div class="officer-title">DEC Secretary</div>
-              <p style="font-size:0.88rem;color:#2c3547;line-height:1.6;margin-bottom:0.4rem;">Keeper of records for the DEC.</p>
-              <ul style="font-size:0.86rem;padding-left:1.2rem;margin:0;">
-                <li>Take and present minutes at all meetings</li>
-                <li>Forward minutes to Party Affairs within 20 days</li>
-                <li>Send general meeting notice at least 10 days prior</li>
-                <li>Send membership changes to Party Affairs and SOE within 10 days</li>
-              </ul>
-            </div>
-            <div class="officer-card">
-              <div class="officer-title">DEC Treasurer</div>
-              <p style="font-size:0.88rem;color:#2c3547;line-height:1.6;margin-bottom:0.4rem;">Chief financial officer for the local party.</p>
-              <ul style="font-size:0.86rem;padding-left:1.2rem;margin:0;">
-                <li>Deposit all DEC funds in designated bank(s)</li>
-                <li>Keep accurate records of all receipts and expenditures</li>
-                <li>Provide accounting at each DEC meeting</li>
-                <li>File all required reports with the SOE</li>
-                <li>Arrange annual financial audit — filed by April 1</li>
-              </ul>
-              <a href="https://docs.google.com/document/d/1K469KzDR4hea4cQRsg8kgFpEu7OandJp/edit" target="_blank" style="font-size:0.83rem;display:block;margin-top:0.5rem;">📄 Full Duties of DEC Treasurer →</a>
-            </div>
-            <div class="officer-card full">
-              <div class="officer-title">State Committee Members</div>
-              <p style="font-size:0.88rem;color:#2c3547;line-height:1.6;">Facilitate communication between state and local party; take issues from DEC to FDP; report FDP business to DEC; keep DEC informed of all Charter and Bylaw changes; attend all State Executive Committee meetings.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MEETINGS -->
-      <div class="section-card" id="meetings">
-        <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
-          <div class="section-toggle-left">
-            <div class="section-icon teal">📅</div>
-            <div>
-              <h2>DEC Meetings</h2>
-              <p class="section-preview">How to call meetings, quorum rules, agendas, and proxies</p>
-            </div>
-          </div>
-          <span class="chevron">▾</span>
-        </button>
-        <div class="section-body">
-          <p>While a <strong>quarterly meeting</strong> is sufficient for FDP minimum requirements, best practice is a <strong>regular monthly meeting</strong>, ideally on a consistent date and in a consistent, accessible space.</p>
-
-          <h3>Methods to Call a Meeting</h3>
-          <div class="two-col">
-            <div>
-              <h4>Call by the Chair</h4>
-              <p style="font-size:0.9rem;"><strong>General meetings:</strong> at least 10 days' written notice.<br><strong>Special meetings:</strong> at least 5 days' notice; notice must clearly state the purpose.</p>
-            </div>
-            <div>
-              <h4>Call by Petition</h4>
-              <p style="font-size:0.9rem;">Written petition signed by at least <strong>30% of total membership</strong> (excluding Automatic members). Chair must schedule within 20 days, with at least 14 days' notice.</p>
-            </div>
-          </div>
-          <h4>Failure-to-Call (Reorganization)</h4>
-          <p>If the State Chair determines the DEC has failed to hold a meeting with quorum for <strong>six consecutive months</strong>, the State Chair may direct Congressional District Chair(s) to convene a reorganization meeting with at least 14 days' notice.</p>
-
-          <h3>Quorum</h3>
-          <p><strong>25% of membership</strong> must be present (excluding automatic members). The chair should confirm quorum with the secretary before calling the meeting to order.</p>
-
-          <h3>Sample Meeting Agenda</h3>
-          <ol class="agenda-list">
-            <li>Call to Order</li>
-            <li>Pledge of Allegiance</li>
-            <li>Roll Call / Declaration of Quorum</li>
-            <li>Approval of Agenda</li>
-            <li>Approval of Minutes</li>
-            <li>Officers Report (Chair, Vice Chair, Secretary, Treasurer, and/or State Committee)</li>
-            <li>Old Business</li>
-            <li>New Business</li>
-            <li>Announcements</li>
-            <li>Adjournment</li>
-          </ol>
-          <div class="callout">💡 Guest speakers, local candidates, and celebrating volunteer effort are excellent additions. Use your meeting to celebrate and motivate — people support that which they help to create.</div>
-
-          <h3>Voting &amp; Proxies</h3>
-          <div class="two-col">
-            <div>
-              <h4>Voting</h4>
-              <p style="font-size:0.9rem;">Each member gets <strong>one (1) vote.</strong> Per FDP Charter Article I, Section 4.1.1, <strong>no vote shall be taken by secret ballot.</strong></p>
-            </div>
-            <div>
-              <h4>Proxies</h4>
-              <p style="font-size:0.9rem;">Members unable to attend may submit a written proxy to a DEC officer before the meeting. <strong>No person may hold more than one (1) proxy.</strong> A proxy form is in the Appendix.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEERING, CLUBS, CAUCUSES -->
-      <div class="section-card" id="steering">
-        <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
-          <div class="section-toggle-left">
-            <div class="section-icon gold">🤝</div>
-            <div>
-              <h2>Steering Committee, Clubs &amp; Caucuses</h2>
-              <p class="section-preview">Steering committee, county clubs, caucuses, DCCA, SCC, and statutes</p>
-            </div>
-          </div>
-          <span class="chevron">▾</span>
-        </button>
-        <div class="section-body">
-          <h3>Steering Committee</h3>
-          <p>Supervises and carries out business between DEC meetings. Actions must be ratified by the DEC at the next meeting. Consists of DEC officers and must include at least <strong>two State committee persons of different genders</strong>.</p>
-
-          <div class="two-col">
-            <div>
-              <h3>County Clubs</h3>
-              <p style="font-size:0.9rem;">A Democratic club's charter falls within the jurisdiction of the county DEC where the majority of membership resides. A county DEC shall not establish a maximum number of clubs.</p>
-              <p style="font-size:0.88rem;">Contact: <a href="/cdn-cgi/l/email-protection#05556477717c446363646c77764543696a776c6164416068762b6a7762"><span class="__cf_email__" data-cfemail="93c3f2e1e7ead2f5f5f2fae1e0d3d5fffce1faf7f2d7f6fee0bdfce1f4">[email&#160;protected]</span></a></p>
-            </div>
-            <div>
-              <h3>County Caucuses</h3>
-              <p style="font-size:0.9rem;">Local caucus chapters are chartered by State Caucuses. State Caucuses are under the jurisdiction of the FDP. Contact the appropriate State Caucus for more information.</p>
-            </div>
-          </div>
-
-          <div class="two-col">
-            <div>
-              <h3>DCCA</h3>
-              <p style="font-size:0.9rem;">The Democratic County Chairs Association promotes communication among DEC Chairs and Vice Chairs. Helps county parties improve governance, grow membership, and achieve electoral success.</p>
-            </div>
-            <div>
-              <h3>Small County Coalition (SCC)</h3>
-              <p style="font-size:0.9rem;">For DECs in counties with fewer than 40,000 registered Democrats. Monthly virtual meetings providing training and support. Represents nearly 500,000 registered Democrats collectively.</p>
-            </div>
-          </div>
-
-          <h3>Statutes &amp; Bylaws</h3>
-          <p>Key references: Florida Statute 103.091 (membership structure) and FDP Charter Articles I and V (meeting rules, quorum, proxies, officer duties).</p>
-          <p><a href="https://docs.google.com/document/d/1s6dNNEZk1nceNTtXZeiLXbH_aAdQOgV6jkKO1yfh6CE/edit" target="_blank">📄 Full Statutes and Bylaws Reference Document →</a></p>
-        </div>
-      </div>
-
-      <!-- COMPLIANCE -->
-      <div class="section-card" id="compliance">
-        <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
-          <div class="section-toggle-left">
-            <div class="section-icon red">✅</div>
-            <div>
-              <h2>Compliance</h2>
-              <p class="section-preview">Annual, ongoing, and election-year reporting requirements</p>
-            </div>
-          </div>
-          <span class="chevron">▾</span>
-        </button>
-        <div class="section-body">
-          <div class="callout danger">
-            <strong>Compliance is more than a box to check</strong> — it is the foundation of a well-run County Party. Non-compliance risks include financial penalties, loss of trust, damaged relationships, and worst-case scenario, <strong>loss of Charter.</strong>
-          </div>
-
-          <h3 id="recordkeeping">Record Keeping</h3>
-          <div class="two-col">
-            <p>All records (votes, financials, membership lists, bylaws, correspondence) should be kept for at least <strong>3 years</strong>, preferably in cloud/digital storage.</p>
-            <p>Election ballots must be kept for a minimum of <strong>6 months</strong> and are reviewable by a DEC member upon written request, supervised by two DEC officers.</p>
-          </div>
-
-          <h3 id="annual">Part 1: Annual / First Quarter Compliance</h3>
-          <table class="compliance-table">
-            <thead><tr><th>Due Date</th><th>Activity</th><th>Citation</th></tr></thead>
-            <tbody>
-              <tr><td><span class="due-badge">Jan 31</span></td><td>Complete DEC membership list with demographic data + Party Leader Template</td><td>FDP Bylaws Art. V, Sec. 5.3</td></tr>
-              <tr><td><span class="due-badge">Jan 31</span></td><td>Most recent copy of bylaws reflecting any new FDP bylaw changes</td><td>FDP Charter Art. V, Sec. 5</td></tr>
-              <tr><td><span class="due-badge">Jan 31</span></td><td>Remit 20% of clubs' annual Party contribution to FDP</td><td>FDP Bylaws Art. VI, Sec. 2.5</td></tr>
-              <tr><td><span class="due-badge amber">Apr 1</span></td><td>Submit Diversity and Inclusion plan to FDP</td><td>FDP Charter Art. II, Sec. 2.1.4</td></tr>
-              <tr><td><span class="due-badge amber">Apr 1</span></td><td>Audit of DEC income and expenses filed with SOE and FDP</td><td>FLA STAT. Sec. 103.121(2)</td></tr>
-            </tbody>
-          </table>
-
-          <h3 id="ongoing">Part 2: Ongoing Compliance</h3>
-          <table class="compliance-table">
-            <thead><tr><th>Due Date</th><th>Activity</th><th>Citation</th></tr></thead>
-            <tbody>
-              <tr><td><span class="due-badge green">10 days</span><br><small>of any change</small></td><td>Provide membership updates to FDP and SOE</td><td>FLA STAT. Sec. 103.091(3)</td></tr>
-              <tr><td><span class="due-badge green">20 days</span><br><small>after meeting</small></td><td>Approved meeting minutes sent to FDP</td><td>FDP Bylaws Art. V, Sec. 5.4</td></tr>
-              <tr><td><span class="due-badge green">30 days</span><br><small>of adoption</small></td><td>Submit bylaws and amendments to FDP and Rules Committee Chair</td><td>FDP Charter Art. V, Sec. 5</td></tr>
-              <tr><td><span class="due-badge">10th day</span><br><small>after each quarter</small></td><td>File reports of all contributions and expenditures with SOE</td><td>FLA STAT. Sec. 106.29</td></tr>
-            </tbody>
-          </table>
-
-          <h3 id="election-year">Part 3: Election Year Compliance</h3>
-          <div class="two-col">
-            <div>
-              <h4>Non-Endorsement Statement — Due: April 1</h4>
-              <p style="font-size:0.88rem;">Signed statement sent to FDP and County SOE regarding the DEC's intention to endorse or not endorse candidates in a Primary. Required to qualify for Party assessment fees.</p>
-              <p style="font-size:0.82rem;color:var(--muted);">Citation: FLA STAT 103.121(4)(5)</p>
-            </div>
-            <div>
-              <h4>Independent Expenditure Statement — Due: First Day of Qualifying</h4>
-              <p style="font-size:0.88rem;">Notarized letter sent via certified mail to the Secretary of State affirming the DEC has not made and will not make an independent expenditure in support of or opposition to any candidate.</p>
-              <p style="font-size:0.82rem;color:var(--muted);">Citation: FLA. STAT. Sec. 106.087(1)(a)</p>
-            </div>
-          </div>
-          <h4>Campaign Plan (Election Budget)</h4>
-          <p>A DEC receiving Party assessment fees shall submit a campaign/election budget plan to the FDP and the Budget and Finance Committee for approval.</p>
-
-          <h3>Annual Club Party Contributions</h3>
-          <div class="two-col">
-            <table class="compliance-table">
-              <thead><tr><th>Membership</th><th>Annual Contribution</th></tr></thead>
-              <tbody>
-                <tr><td>0–50 members</td><td>$25</td></tr>
-                <tr><td>51–100 members</td><td>$50</td></tr>
-                <tr><td>101–300 members</td><td>$75</td></tr>
-                <tr><td>301–500 members</td><td>$100</td></tr>
-              </tbody>
-            </table>
-            <table class="compliance-table">
-              <thead><tr><th>Membership</th><th>Annual Contribution</th></tr></thead>
-              <tbody>
-                <tr><td>501–750 members</td><td>$150</td></tr>
-                <tr><td>751–1,000 members</td><td>$250</td></tr>
-                <tr><td>Over 1,000 members</td><td>$500</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p>80% stays with the county DEC; 20% is remitted to the FDP by <strong>April 1</strong>. <em>Citation: FDP Bylaws Article VI, Sec. 2.5</em></p>
-          <div class="callout">For detailed financial reporting guidance: <a href="/cdn-cgi/l/email-protection#c696a7b4b2bf87a0a0a7afb4b58680aaa9b4afa2a782a3abb5e8a9b4a1"><span class="__cf_email__" data-cfemail="c797a6b5b3be86a1a1a6aeb5b48781aba8b5aea3a683a2aab4e9a8b5a0">[email&#160;protected]</span></a></div>
-        </div>
-      </div>
-
-      <!-- COMING SOON -->
-      <div class="section-card" id="coming-soon">
-        <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
-          <div class="section-toggle-left">
-            <div class="section-icon green">🔜</div>
-            <div>
-              <h2>Sections Coming Soon</h2>
-              <p class="section-preview">Upcoming additions to this manual</p>
-            </div>
-          </div>
-          <span class="chevron">▾</span>
-        </button>
-        <div class="section-body">
-          <p>The following sections are currently being developed and will be included in future versions:</p>
-          <div class="coming-grid">
-            <div class="coming-card"><div class="icon">📋</div><h4>Robert's Rules Cheat Sheet</h4><p>Quick reference for common meeting procedures</p></div>
-            <div class="coming-card"><div class="icon">🔄</div><h4>DEC Re-Organization</h4><p>Guidance following presidential elections</p></div>
-            <div class="coming-card"><div class="icon">🗳️</div><h4>Campaign and Field</h4><p>GOTV strategies, voter registration, and VBM</p></div>
-            <div class="coming-card"><div class="icon">💰</div><h4>Fundraising</h4><p>Direct asks, event planning, and compliance</p></div>
-            <div class="coming-card"><div class="icon">🏃</div><h4>Candidate Recruitment</h4><p>Identifying and supporting Democratic candidates</p></div>
-            <div class="coming-card"><div class="icon">📢</div><h4>Communications</h4><p>Websites, social media, and media relations</p></div>
-            <div class="coming-card" style="grid-column:1/-1"><div class="icon">📎</div><h4>Appendix</h4><p>Proxy Form, Loyalty Oath, VBM Forms (English &amp; Spanish), Sample Agenda, Minutes, Non-Endorsement Statement, Independent Expenditure Form, In-Kind Donation Form, and Audit Cover Letter</p></div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /content -->
-  </div><!-- /main -->
-</div><!-- /layout -->
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function toggle(btn) {
     const body = btn.nextElementSibling;
     const open = btn.getAttribute('aria-expanded') === 'true';
@@ -1144,43 +1078,34 @@
   }
 
   function openNav() {
-    document.getElementById('sidebar').classList.add('mobile-open');
+    document.getElementById('navDrawer').classList.add('open');
     document.getElementById('navOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeNav() {
-    document.getElementById('sidebar').classList.remove('mobile-open');
+    document.getElementById('navDrawer').classList.remove('open');
     document.getElementById('navOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  function navClick(link, sectionId) {
-    // Close mobile nav
-    closeNav();
-
-    // Find the target element
-    setTimeout(() => {
-      const el = document.getElementById(sectionId);
-      if (!el) return;
-
-      // Find parent section card
-      let card = el.closest('.section-card');
-      if (!card) card = el;
-
-      // Open the section if collapsed
-      const btn = card.querySelector('.section-toggle');
-      const body = card.querySelector('.section-body');
-      if (btn && body && !body.classList.contains('open')) {
-        btn.setAttribute('aria-expanded', 'true');
-        body.classList.add('open');
+  // Smooth scroll to section and open it
+  document.querySelectorAll('.nav-drawer a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Auto-open if it's a section
+          const toggle = el.querySelector('.section-toggle');
+          if (toggle && toggle.getAttribute('aria-expanded') === 'false') {
+            toggle.click();
+          }
+        }, 300);
       }
-
-      // Scroll to element
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300);
-
-    // Update active state in sidebar
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
-  }
+    });
+  });
+</script>
+</body>
+</html>
