@@ -702,7 +702,7 @@
     </nav>
     <div class="sidebar-footer">
       <div>Florida Democratic Party</div>
-      <a href="mailto:PartyAffairs@FloridaDems.org">PartyAffairs@FloridaDems.org</a>
+      <a href="/cdn-cgi/l/email-protection#e3b38291979aa28585828a9190a3a58f8c918a8782a7868e90cd8c9184"><span class="__cf_email__" data-cfemail="4b1b2a393f320a2d2d2a2239380b0d272439222f2a0f2e26386524392c">[email&#160;protected]</span></a>
     </div>
   </aside>
 
@@ -726,7 +726,7 @@
 
       <!-- INTRODUCTION -->
       <div class="section-card" id="intro">
-        <button class="section-toggle" onclick="toggle(this)" aria-expanded="true">
+        <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
           <div class="section-toggle-left">
             <div class="section-icon">📖</div>
             <div>
@@ -736,7 +736,7 @@
           </div>
           <span class="chevron">▾</span>
         </button>
-        <div class="section-body open">
+        <div class="section-body">
           <p>Florida is a diverse state with large and small counties, urban and rural counties, predominantly Democratic counties, and counties where Democrats are heavily outnumbered. No set of standardized practices can be uniformly applied to such a diverse network.</p>
           <p>However, Democratic Executive Committees (DECs) in all counties have common duties and responsibilities as established by Florida Statute, as well as common expectations as established by the Florida Democratic Party (FDP). Each county is a critical part of the state's success.</p>
           <p>This manual addresses common duties and expectations and promotes best practices found in Florida's most successful DECs. It addresses requirements established by Florida law and FDP bylaws, as well as operating rules vital to the FDP's continuity and efficiency.</p>
@@ -993,7 +993,7 @@
             <div>
               <h3>County Clubs</h3>
               <p style="font-size:0.9rem;">A Democratic club's charter falls within the jurisdiction of the county DEC where the majority of membership resides. A county DEC shall not establish a maximum number of clubs.</p>
-              <p style="font-size:0.88rem;">Contact: <a href="mailto:PartyAffairs@FloridaDems.org">PartyAffairs@FloridaDems.org</a></p>
+              <p style="font-size:0.88rem;">Contact: <a href="/cdn-cgi/l/email-protection#05556477717c446363646c77764543696a776c6164416068762b6a7762"><span class="__cf_email__" data-cfemail="93c3f2e1e7ead2f5f5f2fae1e0d3d5fffce1faf7f2d7f6fee0bdfce1f4">[email&#160;protected]</span></a></p>
             </div>
             <div>
               <h3>County Caucuses</h3>
@@ -1101,7 +1101,7 @@
             </table>
           </div>
           <p>80% stays with the county DEC; 20% is remitted to the FDP by <strong>April 1</strong>. <em>Citation: FDP Bylaws Article VI, Sec. 2.5</em></p>
-          <div class="callout">For detailed financial reporting guidance: <a href="mailto:PartyAffairs@FloridaDems.org">PartyAffairs@FloridaDems.org</a></div>
+          <div class="callout">For detailed financial reporting guidance: <a href="/cdn-cgi/l/email-protection#c696a7b4b2bf87a0a0a7afb4b58680aaa9b4afa2a782a3abb5e8a9b4a1"><span class="__cf_email__" data-cfemail="c797a6b5b3be86a1a1a6aeb5b48781aba8b5aea3a683a2aab4e9a8b5a0">[email&#160;protected]</span></a></div>
         </div>
       </div>
 
@@ -1135,7 +1135,7 @@
   </div><!-- /main -->
 </div><!-- /layout -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function toggle(btn) {
     const body = btn.nextElementSibling;
     const open = btn.getAttribute('aria-expanded') === 'true';
@@ -1184,22 +1184,3 @@
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     link.classList.add('active');
   }
-
-  // Highlight active nav item on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        document.querySelectorAll('.nav-link').forEach(l => {
-          const href = l.getAttribute('href');
-          if (href === '#' + id) l.classList.add('active');
-          else l.classList.remove('active');
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  document.querySelectorAll('[id]').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
