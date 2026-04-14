@@ -255,7 +255,7 @@
     transition: transform 0.25s;
     flex-shrink: 0;
   }
-  .section-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .section-toggle[aria-expanded="false"] .chevron { transform: rotate(180deg); }
 
   .section-body {
     display: none;
@@ -509,6 +509,17 @@
     flex-shrink: 0;
   }
 
+  /* ── TWO COLUMN ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 0.75rem 0;
+  }
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
   /* ── COMING SOON ── */
   .coming-soon-grid {
     display: grid;
@@ -595,14 +606,14 @@
 
   <!-- INTRODUCTION -->
   <div class="section" id="intro">
-    <button class="section-toggle" onclick="toggle(this)" aria-expanded="true">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
       <div class="section-toggle-label">
         <div class="section-icon">📖</div>
         <h2>Introduction</h2>
       </div>
       <span class="chevron">▾</span>
     </button>
-    <div class="section-body open">
+    <div class="section-body">
       <p>Florida is a diverse state with large and small counties, urban and rural counties, predominantly Democratic counties, and counties where Democrats are heavily outnumbered. No set of standardized practices can be uniformly applied to such a diverse network.</p>
       <p>However, Democratic Executive Committees (DECs) in all counties do have common duties and responsibilities as established by Florida Statute, as well as common expectations as established by the Florida Democratic Party (FDP), and each county is a critical part of the state's success.</p>
       <p>This manual addresses common duties and expectations and promotes best practices found in some of Florida's most successful DECs. It addresses requirements established by Florida law and by FDP bylaws, as well as operating rules vital to the FDP's continuity and efficiency.</p>
@@ -860,7 +871,7 @@
 
       <h3 id="clubs">County Clubs</h3>
       <p>Per FDP Bylaws Article VI Section 2, the charter of a Democratic club shall be entirely within the jurisdiction of the county Democratic Executive Committee where the majority of the membership resides. A county DEC shall not be authorized to establish a maximum number of Democratic clubs for the county.</p>
-      <div class="callout">For more information on chartering or running a County Democratic Club, contact <a href="mailto:PartyAffairs@FloridaDems.org">PartyAffairs@FloridaDems.org</a>.</div>
+      <div class="callout">For more information on chartering or running a County Democratic Club, contact <a href="/cdn-cgi/l/email-protection#aefecfdcdad7efc8c8cfc7dcddeee8c2c1dcc7cacfeacbc3dd80c1dcc9"><span class="__cf_email__" data-cfemail="c292a3b0b6bb83a4a4a3abb0b18284aeadb0aba6a386a7afb1ecadb0a5">[email&#160;protected]</span></a>.</div>
 
       <h3>County Caucuses</h3>
       <p>Local caucus chapters are chartered by State Caucuses. State Caucuses are under the jurisdiction of the FDP. For more information on chartering or running a county Democratic caucus, contact the appropriate State Caucus.</p>
@@ -1007,7 +1018,125 @@
       <p style="margin-top:0.5rem;">80% of the contribution remains with the county DEC; 20% is remitted to the FDP by the county DEC no later than April 1.</p>
       <p><em>Regulatory citation: FDP Bylaws Article VI, Sec. 2.5</em></p>
 
-      <div class="callout">For detailed guidance on financial reports to the FDP and Supervisor of Elections, contact <a href="mailto:PartyAffairs@FloridaDems.org">PartyAffairs@FloridaDems.org</a></div>
+      <div class="callout">For detailed guidance on financial reports to the FDP and Supervisor of Elections, contact <a href="/cdn-cgi/l/email-protection#3161504345487057575058434271775d5e4358555075545c421f5e4356"><span class="__cf_email__" data-cfemail="2171405355586047474048535261674d4e5348454065444c520f4e5346">[email&#160;protected]</span></a></div>
+
+      <h3>In-Kind Contributions</h3>
+      <p>An in-kind contribution is defined under Florida Statutes §106.011(3)(a) as a non-monetary gift of goods or services that has an attributable monetary value and is made to influence an election. There is <strong>no contribution limit</strong> on in-kind contributions to a State or County political party.</p>
+      <div class="two-col">
+        <div>
+          <h4>Examples</h4>
+          <ul>
+            <li>Professional services (polling, printing)</li>
+            <li>Office supplies, furniture, printers, paper</li>
+            <li>Rent of office space, postcards, stamps</li>
+            <li>Food, beverages, accommodations</li>
+            <li>Use of private aircraft or discounted campaign materials</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key Rules</h4>
+          <ul>
+            <li>Must be reported at <strong>fair market value</strong></li>
+            <li>Must be itemized in the Treasurer's SOE report regardless of size</li>
+            <li>Must provide a direct benefit to the political party</li>
+            <li>Must be accepted <strong>before</strong> the contribution is made</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout warning">
+        <strong>Acceptance procedure:</strong> The Chair (or named designee on file with the SOE) must accept an in-kind contribution in writing before it is made. The donor must also provide written, signed, and dated notice of their intention to contribute.
+      </div>
+      <div class="callout important">
+        <strong>⚠️ Warning:</strong> Any contribution received less than 5 days before an election may not be used on behalf of any candidate or party in that election. Any officer who aids or participates in a violation may be guilty of a felony with fines of $10,000–$50,000. State and County parties may not solicit contributions from religious, charitable, or civic organizations.
+      </div>
+
+      <h3>$50 Cash Rule</h3>
+      <p>The DEC may accept cash donations from an individual in the aggregate of <strong>$50 per election.</strong> A cashier's check is treated the same as cash. Personal checks from a checking account are <em>not</em> considered "cash" under this rule.</p>
+      <div class="callout important">
+        Accepting aggregate cash or cashier's check contributions exceeding $50 per election is a <strong>misdemeanor of the first degree.</strong> Knowingly accepting more than $5,000 in violation is a <strong>felony of the third degree.</strong> <em>Citation: FLA STAT. §106.09</em>
+      </div>
+
+      <h3>$500 Threshold Rule (Clubs &amp; Caucuses)</h3>
+      <p>Under Florida Statutes §106.03, any group that receives contributions or makes expenditures <strong>over $500 in a calendar year</strong> for the purpose of influencing an election must register as a Political Committee (PC) and file regular campaign finance reports.</p>
+      <div class="two-col">
+        <div>
+          <h4>✓ Counts Toward $500</h4>
+          <ul>
+            <li>Donations to candidates, PACs, or political parties</li>
+            <li>Printing/distributing campaign literature endorsing/opposing a candidate</li>
+            <li>Running ads or mailings telling people how to vote</li>
+            <li>Hosting fundraisers with proceeds going to candidates</li>
+            <li>Coordinating GOTV for a specific candidate or ballot issue</li>
+          </ul>
+        </div>
+        <div>
+          <h4>✗ Does NOT Count Toward $500</h4>
+          <ul>
+            <li>Collecting membership dues</li>
+            <li>Paying rent or utilities for club meetings</li>
+            <li>Producing flyers marketing the club itself</li>
+            <li>Hosting purely social or educational meetings</li>
+            <li>Refreshments, postage, and internal admin expenses</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Gambling Prohibition</h3>
+      <div class="callout important">
+        <strong>DECs, Clubs, and Caucuses are prohibited from all gambling activities</strong> — including 50/50 raffles, regular raffles, bingo, and game/casino nights. This applies to all FDP entities.
+      </div>
+      <p>Under Florida Statutes §849.0935, these are games of chance. Only 501(c)(3), (4), (7), (10), or (19) charitable organizations are eligible. DECs are tax-exempt under Section 527 and do not qualify. DEC Chairs must inform clubs under their jurisdiction, and compliance should be considered during club recertification.</p>
+
+      <h3>Political Disclaimers</h3>
+      <p>All materials — texts, emails, literature, slate cards, voter guides, radio, TV, and newspaper ads — created in support of or opposing a candidate or issue must include the required disclaimer. <em>Exceptions: bumper stickers, buttons, hats, and t-shirts.</em></p>
+      <div class="two-col">
+        <div>
+          <h4>State Disclaimer</h4>
+          <p style="background:var(--red-light);border:1px solid var(--border);border-radius:8px;padding:0.75rem;font-size:0.88rem;font-style:italic;">"Paid political advertisement paid for by the [County] County Democratic Executive Committee, [Address]"</p>
+          <p><em>Citation: FLA STAT. §106.143</em></p>
+        </div>
+        <div>
+          <h4>Federal Disclaimer</h4>
+          <p style="background:var(--red-light);border:1px solid var(--border);border-radius:8px;padding:0.75rem;font-size:0.88rem;font-style:italic;">"Paid for by [Committee Name]. Not authorized by any candidate or candidate's committee."</p>
+          <p>Both state AND federal disclaimers are required on all DEC websites — typically placed in headers or footers.</p>
+        </div>
+      </div>
+
+      <h3>Election Ballots — Storage &amp; Review</h3>
+      <p>All ballots must be sealed and retained for <strong>six (6) months</strong> after the election. The Secretary must seal them immediately, dating, time-stamping, and signing the receptacle with a count of ballots inside.</p>
+      <h4>Review Procedure</h4>
+      <ul>
+        <li>DEC members may submit a written request to review ballots within 6 months of the election</li>
+        <li>The Chair establishes a time, date, and location for in-person review; both parties may bring an observer</li>
+        <li>Ballots must remain in the room and not leave sight of the Secretary and Chair at any time</li>
+        <li>Upon conclusion, the Secretary recounts all ballots, reseals the receptacle, and signs/dates with the time opened and resealed</li>
+      </ul>
+
+      <h3>Opening a Bank Account &amp; IRS Obligations</h3>
+      <p>To open a bank account, a DEC must have its own <strong>Employer Identification Number (EIN)</strong>, even without employees.</p>
+      <h4>How to Obtain an EIN</h4>
+      <ol>
+        <li>Go to <a href="https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online" target="_blank">IRS.gov EIN Online Application</a></li>
+        <li>Select <strong>"View Additional Types"</strong> → choose <strong>"Political Organization"</strong></li>
+        <li>Select <strong>"To Open a Bank Account"</strong> as the reason</li>
+        <li>Provide contact information and organization details</li>
+      </ol>
+      <div class="callout">
+        <strong>Donations vs. Income:</strong> Monies received by the DEC should be classified as <em>contributions or donations</em> — not income. Contributions from individuals, PACs, and in-kind donations are not taxable if used for political purposes. Report on IRS Form 8872 if required. Interest on bank accounts, rental income, and sales revenue from fundraising items (t-shirts, tickets) are considered taxable income.
+      </div>
+
+      <h3>Hosting In-Home Fundraising Events</h3>
+      <div class="two-col">
+        <div>
+          <h4>Federal Candidates</h4>
+          <p>An individual may spend up to <strong>$1,000 per candidate, per election</strong> on food, beverages, and invitations for an in-home event without it counting as a contribution. Each person living in the home gets a separate $1,000 allowance.</p>
+        </div>
+        <div>
+          <h4>Florida (Non-Federal) Candidates</h4>
+          <p>All money spent on food, beverages, and supplies for an in-home fundraiser for a Florida candidate <strong>must be reported as an in-kind donation</strong> to the candidate. The candidate must agree to receive and report the donation. <em>Citation: FLA STAT. §106.025</em></p>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1089,7 +1218,6 @@
     document.body.style.overflow = '';
   }
 
-  // Smooth scroll to section and open it
   document.querySelectorAll('.nav-drawer a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href').slice(1);
@@ -1097,10 +1225,9 @@
       if (el) {
         setTimeout(() => {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Auto-open if it's a section
-          const toggle = el.querySelector('.section-toggle');
-          if (toggle && toggle.getAttribute('aria-expanded') === 'false') {
-            toggle.click();
+          const toggleBtn = el.querySelector('.section-toggle');
+          if (toggleBtn && toggleBtn.getAttribute('aria-expanded') === 'false') {
+            toggleBtn.click();
           }
         }, 300);
       }
