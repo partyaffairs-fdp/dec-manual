@@ -394,12 +394,14 @@
   .compliance-table th {
     background: var(--blue);
     color: white;
-    padding: 0.6rem 0.75rem;
+    padding: 0.6rem 0.5rem;
     text-align: left;
     font-weight: 700;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
+    white-space: normal;
+    vertical-align: bottom;
   }
   .compliance-table td {
     padding: 0.65rem 0.75rem;
@@ -552,6 +554,12 @@
   @media (max-width: 400px) {
     .coming-soon-grid { grid-template-columns: 1fr; }
   }
+  /* Roberts Rules scrollable table */
+  .rr-scroll-table::-webkit-scrollbar { width: 12px; }
+  .rr-scroll-table::-webkit-scrollbar-track { background: #e8f0fb; border-radius: 0 8px 8px 0; }
+  .rr-scroll-table::-webkit-scrollbar-thumb { background: #003DA5; border-radius: 8px; border: 2px solid #e8f0fb; }
+  .rr-scroll-table::-webkit-scrollbar-thumb:hover { background: #00278a; }
+  .rr-scroll-table { scrollbar-width: auto; scrollbar-color: #003DA5 #e8f0fb; }
 </style>
 </head>
 <body>
@@ -867,26 +875,26 @@
 
       <h3>Quick Reference Chart</h3>
       <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;">&#9679; = Yes &nbsp;&nbsp; &#9675; = No</p>
-      <div style="max-height:340px;overflow-y:auto;border:1px solid var(--border);border-radius:8px;">
-        <table class="compliance-table" style="font-size:0.68rem;table-layout:fixed;width:100%;margin:0;border:none;border-radius:0;">
+      <div class="rr-scroll-table" style="max-height:360px;overflow-y:auto;border:1px solid var(--border);border-radius:8px;">
+        <table class="compliance-table" style="font-size:0.72rem;table-layout:fixed;width:100%;margin:0;border:none;border-radius:0;">
           <colgroup>
+            <col style="width:16%;">
             <col style="width:22%;">
-            <col style="width:30%;">
-            <col style="width:9%;">
-            <col style="width:9%;">
-            <col style="width:10%;">
-            <col style="width:10%;">
-            <col style="width:10%;">
+            <col style="width:12%;">
+            <col style="width:12%;">
+            <col style="width:12%;">
+            <col style="width:12%;">
+            <col style="width:14%;">
           </colgroup>
-          <thead>
+          <thead style="font-size:0.67rem;">
             <tr>
-              <th style="position:sticky;top:0;z-index:2;white-space:normal;vertical-align:bottom;">Action</th>
-              <th style="position:sticky;top:0;z-index:2;white-space:normal;vertical-align:bottom;">What to Say</th>
-              <th style="position:sticky;top:0;z-index:2;white-space:normal;vertical-align:bottom;text-align:center;">Can Interrupt?</th>
-              <th style="position:sticky;top:0;z-index:2;white-space:normal;vertical-align:bottom;text-align:center;">Need a Second?</th>
-              <th style="position:sticky;top:0;z-index:2;white-space:normal;vertical-align:bottom;text-align:center;">Can be Debated?</th>
-              <th style="position:sticky;top:0;z-index:2;white-space:normal;vertical-align:bottom;text-align:center;">Can be Amended?</th>
-              <th style="position:sticky;top:0;z-index:2;white-space:normal;vertical-align:bottom;text-align:center;">Votes Needed</th>
+              <th style="position:sticky;top:0;z-index:2;">Action</th>
+              <th style="position:sticky;top:0;z-index:2;">What to Say</th>
+              <th style="position:sticky;top:0;z-index:2;text-align:center;">Interrupt Speaker?</th>
+              <th style="position:sticky;top:0;z-index:2;text-align:center;">Need a Second?</th>
+              <th style="position:sticky;top:0;z-index:2;text-align:center;">Can be Debated?</th>
+              <th style="position:sticky;top:0;z-index:2;text-align:center;">Can be Amended?</th>
+              <th style="position:sticky;top:0;z-index:2;text-align:center;">Votes Needed</th>
             </tr>
           </thead>
           <tbody>
