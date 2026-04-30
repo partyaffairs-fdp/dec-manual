@@ -74,7 +74,95 @@
   }
   .menu-btn:hover { background: rgba(255,255,255,0.25); }
 
-  /* ── DRAWER NAV ── */
+  /* ── SEARCH ── */
+  .search-bar {
+    margin-top: 0.85rem;
+    position: relative;
+  }
+  .search-bar input {
+    width: 100%;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 0.55rem 2.5rem 0.55rem 2.2rem;
+    color: white;
+    font-size: 0.9rem;
+    font-family: 'Source Sans 3', sans-serif;
+    outline: none;
+    transition: background 0.2s, border 0.2s;
+  }
+  .search-bar input::placeholder { color: rgba(255,255,255,0.55); }
+  .search-bar input:focus { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.6); }
+  .search-icon {
+    position: absolute;
+    left: 0.65rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .search-clear {
+    position: absolute;
+    right: 0.65rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    cursor: pointer;
+    display: none;
+    line-height: 1;
+    padding: 0;
+  }
+  .search-clear:hover { color: white; }
+  .search-results {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0; right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    z-index: 200;
+    max-height: 320px;
+    overflow-y: auto;
+    display: none;
+  }
+  .search-results.open { display: block; }
+  .search-result-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .search-result-item:last-child { border-bottom: none; }
+  .search-result-item:hover { background: var(--red-light); }
+  .search-result-section {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--blue);
+    margin-bottom: 0.15rem;
+  }
+  .search-result-text {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .search-result-text mark {
+    background: #fff3cd;
+    color: var(--text);
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+  .search-no-results {
+    padding: 1rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
   .nav-overlay {
     display: none;
     position: fixed;
@@ -598,6 +686,7 @@
   <a href="#chart" onclick="closeNav()" class="sub">Compliance Chart</a>
   <a href="#ongoing" onclick="closeNav()" class="sub">Ongoing Requirements</a>
   <a href="#election-year" onclick="closeNav()" class="sub">Election Year Requirements</a>
+  <a href="#candidate-recruitment" onclick="closeNav()" class="sub">Candidate Recruitment &amp; Support</a>
   <a href="#coming-soon" onclick="closeNav()">Sections Coming Soon</a>
   <div style="height:1rem"></div>
 </nav>
@@ -1270,6 +1359,82 @@
 
     </div>
   </div>
+
+  <!-- CANDIDATE RECRUITMENT -->
+  <div class="section" id="candidate-recruitment">
+    <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="section-toggle-label">
+        <div class="section-icon">🏃</div>
+        <h2>Resources for Candidate Recruitment &amp; Support</h2>
+      </div>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="section-body">
+      <p>DECs are the foundation of our success. You know your communities, your local leadership landscape, and the individuals who may be ready to step up and serve. That local insight is invaluable to effective candidate recruitment.</p>
+      <p>At the same time, DECs are not expected to build recruitment systems, training programs, or campaign infrastructure on their own. The FDP has invested in a statewide Candidate Support Team and comprehensive resources to ensure candidates receive professional, consistent support.</p>
+      <p>When a prospective candidate expresses interest, the most important next step is to direct them to complete the <strong>FDP Run for Office form</strong>. From there, the Candidate Support Team will connect them to the full suite of resources and provide continued assistance throughout their campaign.</p>
+      <div class="callout">This collaborative model allows DECs to focus on local engagement and relationship-building, while FDP ensures candidates have the infrastructure and expertise needed to run successful campaigns. Together, we strengthen our bench and build Democratic power across Florida.</div>
+
+      <h3>Why Candidate Recruitment Matters</h3>
+      <p>The core purpose of every DEC is simple: elect Democrats to office. But we cannot win elections if we do not have candidates on the ballot. Candidate recruitment cannot be reactive or last-minute — it must be intentional, strategic, and year-round.</p>
+      <p>When DECs recruit early and consistently, we:</p>
+      <ul>
+        <li><strong>Set candidates up for success:</strong> Early recruitment reduces barriers, gives candidates time to prepare, and allows for proper campaign development.</li>
+        <li><strong>Build our bench:</strong> Many of Florida's strongest Democratic leaders began in local office. Today's city commissioner is tomorrow's state legislator or member of Congress.</li>
+        <li><strong>Strengthen long-term Democratic power:</strong> A steady pipeline of candidates ensures we are competitive now and in future cycles.</li>
+        <li><strong>Engage our communities:</strong> Recruitment energizes local Democrats and strengthens our local grassroots organizing.</li>
+        <li><strong>Hold Republicans accountable:</strong> We cannot challenge extreme, right-wing policies if we leave seats uncontested. Having a candidate run means Republicans have to answer to voters for their attacks on our freedoms.</li>
+      </ul>
+
+      <h3>Passive vs. Active Recruitment</h3>
+      <p>Many DECs rely primarily on passive recruitment — waiting for candidates to come to them. While helpful, passive recruitment alone is not enough. Winning organizations actively recruit. This means identifying leadership potential in someone before they see it themselves.</p>
+      <div style="overflow-x:auto;">
+        <table class="compliance-table">
+          <thead>
+            <tr><th>Passive Recruitment</th><th>Active Recruitment</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Posting on social media</td><td>Assembling a candidate recruitment committee to brainstorm names</td></tr>
+            <tr><td>Emailing a list with a call for candidates</td><td>Meeting one-on-one with potential candidates to make a direct ask</td></tr>
+            <tr><td>Adding an interest form to your website</td><td>Asking trusted community leaders for recommendations</td></tr>
+            <tr><td>Sending a press release for a call for candidates</td><td>Calling previous candidates to ask them to run again</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Expectation: A Year-Round Recruitment Plan</h3>
+      <p>Every DEC should have a year-round candidate recruitment plan that identifies priority offices, assigns recruitment responsibility, sets timelines well before filing deadlines, utilizes FDP resources and prospect lists, and builds relationships with potential future candidates.</p>
+      <p>Recruitment is not a one-time task — it is an ongoing responsibility and a core function of party building.</p>
+
+      <h3>Resources for Identifying &amp; Recruiting Strong Candidates</h3>
+      <p>The Florida Democratic Party has created comprehensive resources to empower DECs to build and execute an effective year-round recruitment plan. If you have questions or need help, the FDP Candidate Support Team is available at <a href="mailto:candidates@floridadems.org">candidates@floridadems.org</a>.</p>
+
+      <h4>DEC Candidate Recruitment Toolkit</h4>
+      <p>A ready-to-use toolkit that includes recruitment templates and talking points, a vetting guide and interview worksheet, best practices for supporting candidates at your DEC, and a "Thinking About Running" guide to help prospective candidates evaluate whether running is right for them.</p>
+
+      <h4>Virtual Voter Guide</h4>
+      <p>For every election, FDP publishes an online voter guide hosted on the state party website. It lists all Democrats on the ballot (including candidates in non-partisan races) and helps voters easily identify Democratic choices. DECs can promote this guide locally to support turnout and visibility.</p>
+
+      <h4>Election &amp; Office Data</h4>
+      <p>FDP maintains a comprehensive list of elected offices statewide, party affiliation of all elected officials in Florida (including non-partisan races), research on upcoming elections, and candidate identification and election dates. Contact <a href="mailto:candidates@floridadems.org">candidates@floridadems.org</a> to request county-specific data.</p>
+
+      <h4>Prospect List</h4>
+      <p>The Florida Democratic Party maintains a database of thousands of prospective candidates who have consented to having their information shared for recruitment purposes. This resource is available to DEC, club, and caucus officers or committee chairs to support active, strategic candidate recruitment efforts.</p>
+      <div class="callout warning"><strong>Note:</strong> Requests must be specific and tied to a clear recruitment plan (e.g., a particular office, district, or election). FDP does not provide broad or "catch-all" lists for entire counties or regions. FDP does not vet nor endorse these prospective candidates.</div>
+
+      <h3>Resources for Candidates &amp; Prospective Candidates</h3>
+      <p>When you recruit a candidate, you are not expected to train or support them alone. The FDP Candidate Support Team provides wrap-around services statewide to every Democratic candidate. DECs should encourage all candidates and prospective candidates to complete the <strong>Run for Office form</strong> to access these free resources:</p>
+      <ul>
+        <li><strong>Bi-Weekly Newsletter:</strong> FDP's candidate newsletter provides announcements, updates, and new resources to candidates.</li>
+        <li><strong>Digital Candidate Toolkit:</strong> A free toolkit filled with guidance, social media templates, checklists and more — helping candidates save valuable time on campaign infrastructure.</li>
+        <li><strong>Votebuilder:</strong> Candidates may purchase access to Votebuilder through FDP — a powerful campaigning tool that streamlines voter targeting and field operations. Free trainings are available. A scholarship program provides a 50% discount for candidates running in heavily red districts.</li>
+        <li><strong>Scale to Win Tools:</strong> Candidates can sign up for a subaccount on the Scale to Win Dialer and texting platform for free, with all calls and texts billed at FDP's bulk rate.</li>
+        <li><strong>Candidate Training:</strong> FDP and state and national partners provide free candidate training year-round. A full training calendar is available in the candidate toolkit.</li>
+        <li><strong>Office Hours:</strong> Candidates or prospective candidates with questions or who need 1:1 support can register for office hours with the candidate support team, or email <a href="mailto:candidates@floridadems.org">candidates@floridadems.org</a> 24/7.</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- COMING SOON -->
   <div class="section" id="coming-soon">
     <button class="section-toggle" onclick="toggle(this)" aria-expanded="false">
@@ -1296,11 +1461,6 @@
           <div class="icon">💰</div>
           <h4>Fundraising</h4>
           <p>Direct asks, event planning, and compliance</p>
-        </div>
-        <div class="coming-soon-card">
-          <div class="icon">🏃</div>
-          <h4>Candidate Recruitment</h4>
-          <p>Identifying and supporting Democratic candidates</p>
         </div>
         <div class="coming-soon-card">
           <div class="icon">📢</div>
